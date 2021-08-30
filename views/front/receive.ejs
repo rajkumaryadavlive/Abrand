@@ -1,0 +1,106 @@
+<%- include('header') %>
+  <div class="page-header">
+    <h3 class="page-title">
+      <span class="page-title-icon bg-gradient-primary text-white mr-2">
+        <i class="mdi mdi-home"></i>
+      </span> Receive
+    </h3>
+  </div>
+
+
+  <section class="dash-inner-sec">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="dashboard-box  wow slideInUp">
+          <div class="create-wallet-block">
+
+            <h3 class="main-heading">Yes Let's get set up.</h3>
+
+            <p class="head-commn-text">This will create a new wallet.</p>
+
+            <h4 class="green-heading">Only receive POP to this address sending any other digital asset, will result in
+              permanent loss.</h4>
+
+            <div class="input-group input-dash copy-id-dash">
+              <input class="form-control" type="text" id="address" name="address"
+                value="<%=walletdetails.wallet_address%>" placeholder="2798ehgdgdsghj9832q787ysuueh" readonly>
+              <a onclick="myFunction()" href="javascript:void(0);"><i class="fa fa-copy"></i></a>
+            </div>
+
+            <!--  <div class="input-group input-dash wow slideInLeft">
+                              <input class="form-control" type="text" id="address" name="address" value="<%=walletdetails.wallet_address%>" placeholder="2798ehgdgdsghj9832q787ysuueh" readonly>
+                              <div class="input-group-append">
+                             <span class="input-group-text" id="basic-addon2"><a href="javascript:void(0);" onclick="myFunction()">Copy</a></span>
+                           </div>
+                         </div> -->
+            <div class="clearfix note-line">
+              <span class=""><b><i class="fa fa-info-circle"></i> Make sure you keep the passphrase safe. You will be
+                  asked to re-type it for cofirmation.</b></span>
+            </div>
+
+
+            <div class="col-md-12">
+              <div class="text-center mlti-btn">
+                <a href="javascript:void(0);" download="POP_ACCOUNT.txt" id="download"
+                  class="btn btn-common light-green">Download</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="dashboard-box  wow slideInUp">
+          <div class="card-content collapse show ">
+            <div class="card-body">
+              <div class="font-small-3 token-balance clearfix">
+                <h6 class="hbg my-2 text-left">5 step guide</h6>
+                <ol class="text-left four-step-list">
+                  <li>Calculate how much tokens you want to buy.</li>
+                  <li>Copy/Scan the displayed address</li>
+                  <li>Send your BTC to that address. You may send it right from your exchange.</li>
+                  <li>Upon transaction confirmation, please fill in your transaction details (Bitcoin Wallet address,
+                    Ethereum Wallet address and transaction ID) in the form. We need Ethereum wallet address so that we
+                    can transfer POP coins to you.</li>
+                  <li>Our team will verify the transaction and will send your POP tokens within 48 hours which will be
+                    reflected in your wallet.</li>
+                </ol>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <%- include('footer') %>
+    <script type="text/javascript">
+      function myFunction() {
+        var copyText = document.getElementById("address");
+        if ($('#address').val() != "") {
+          copyText.select();
+          document.execCommand("copy");
+          alert("Wallet address is copied.");
+        }
+      }
+    </script>
+
+    <script type="text/javascript">
+      (function () {
+        var textFile = null,
+          makeTextFile = function (text) {
+            var data = new Blob([text], { type: 'text/plain' });
+            if (textFile !== null) {
+              window.URL.revokeObjectURL(textFile);
+            }
+            textFile = window.URL.createObjectURL(data);
+            return textFile;
+          };
+        var create = document.getElementById('download'),
+          textbox = document.getElementById('address');
+        create.addEventListener('click', function () {
+          var link = document.getElementById('download');
+          link.href = makeTextFile(textbox.value);
+        }, false);
+      })();
+    </script>

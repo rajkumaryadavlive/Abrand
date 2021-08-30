@@ -1,0 +1,194 @@
+<%- include('header') %>
+
+  
+
+    <div class="heading-row mb-2">
+    <div class="row align-item-center">
+       <div class="col-lg-6">
+          <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i class="mdi mdi-account"></i></span> Dashboard  </h3>
+       </div>
+       
+  </div>
+  </div>
+
+  <div class="row">
+              <div class="col-md-2 stretch-card grid-margin">
+                <div class="card bg-gradient-danger card-img-holder text-white">
+                  <div class="card-body">
+                    <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">Total Worth 
+                    </h4>
+                    <img src="assets/images/buy-coin.png" class="img-fluid icon-img">
+                    <h2 class="mb-5"><%=full_value%></h2>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 stretch-card grid-margin">
+                <div class="card bg-gradient-danger card-img-holder text-white">
+                  <div class="card-body">
+                    <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">$EBT 
+                    </h4>
+                    <img src="assets/images/buy-coin.png" class="img-fluid icon-img">
+
+                    <h2 class="mb-5"><%=coinbalance%></h2>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 stretch-card grid-margin">
+                <div class="card bg-gradient-danger card-img-holder text-white">
+                  <div class="card-body">
+                    <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">Rewards Earned  
+                    </h4>
+                    <img src="assets/images/buy-coin.png" class="img-fluid icon-img">
+                    <h2 class="mb-5">$EBT  </h2>
+                  </div>
+                </div>
+              </div>
+               <div class="col-md-2 stretch-card grid-margin">
+                <div class="card bg-gradient-danger card-img-holder text-white">
+                  <div class="card-body">
+                    <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">USDT (ERC20) 
+                    </h4>
+                    <img src="assets/images/tether.png" class="img-fluid icon-img">
+                    <h2 class="mb-5"> <%=coinbalance%></h2>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 stretch-card grid-margin">
+                <div class="card bg-gradient-danger card-img-holder text-white">
+                  <div class="card-body">
+                    <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">ETH
+                    </h4>
+                    <img src="assets/images/eth-icon.png" class="img-fluid icon-img">
+                    <h2 class="mb-5"><%=ethBalance%></h2>
+                  </div>
+                </div>
+              </div>
+             <!--  <div class="col-md-2 stretch-card grid-margin">
+                <div class="card bg-gradient-danger card-img-holder text-white">
+                  <div class="card-body">
+                    <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3"> Connect with 
+                    </h4>
+                    <img src="assets/images/meta-icon.png" class="img-fluid icon-img" data-toggle="tooltip" data-placement="top" title="Metamask">
+                    <img src="assets/images/bnb-icon.png" class="img-fluid icon-img" data-toggle="tooltip" data-placement="top" title="BSC Wallet">
+
+                   
+                    <img src="assets/images/trust-icon.png" class="img-fluid icon-img" data-toggle="tooltip" data-placement="top" title="Trust Wallet">
+                    
+                  </div>
+                </div>
+              </div> -->
+             
+
+            </div>
+
+  <div class="row align-item-strech dash-inner-sec">
+             
+             <div class="col-lg-6 col-md-12">
+                <div class="upper-block-coin dashboard-box shadow-box" style="min-height: auto;height: 100%;">
+                    <div style="width: 100%;">
+                        <!-- <div class="header-block clearfix">
+                          <span class="name-side green-heading">$EBT</span>
+                          <span class="logo-side"><img src="assets/images/buy-coin.png"></span>
+                        </div> -->
+                        <div class="artw-align">
+                           <div class="radio">
+                              <label>
+                                <input type="radio" name="o1" value="" checked>
+                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                <div>
+                                  <img src="assets/images/buy-coin.png">
+                                  $EBT
+                                </div>
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="o1" value="" >
+                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                <div>
+                                  <img src="assets/images/eth-icon.png">
+                                  ETH
+                                </div>
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="o1" value="">
+                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                <div>
+                                  <img src="assets/images/tether.png">
+                                  USDT<small>(ERC20)</small>
+                                </div>
+                              </label>
+                            </div>
+                        </div>
+                        <div class="create-wallet-block mt-4">
+                          <div class="input-group input-dash copy-id-dash">
+                             <!-- <input class="form-control text-left" type="text" placeholder="" value="2798ehgdgdsffsfsfighj9832q787ysuueh"> -->
+                             <input class="form-control" type="text" id="address" name="address"
+                             value="<%=wallet_details.wallet_address %>" placeholder="" readonly>
+                            <a onclick="myFunction()" href="javascript:void(0);"><i class="fa fa-copy"></i></a>
+                             <a href=""><i class="fa fa-share"></i></a>
+                        </div>
+                        </div>
+                       
+                        <div class="text-center mlti-btn mt-4">
+                              <!-- <a href="/send-EBT" class="btn btn-common light-green">Send</a> -->
+                              <!-- <a href="/send-EBT" class="btn btn-common light-green" >Send</a> -->
+                              <a href="/buy-coin" class="btn btn-common light-green">Buy</a>
+                              <a href="/receive-ebt?walletid=<%-wallet_details._id %>" class="btn btn-common light-green">Receive</a>
+                          </div>
+                    </div>
+                  </div>
+                  
+             </div>
+              <div class="col-lg-6 col-md-12">
+                  <div class="card steps-card text-center for-all-pages">
+                                  <div class="card-content collapse show">
+                                      <div class="card-body">
+                                          <div class="font-small-3 token-balance clearfix">
+                                               <h6 class="hbg my-2 text-left">The $EBT guide</h6>
+                                               <ul class="text-left four-step-list">
+                                                  <li>This is your universal wallet. Please do remember your private key. In case it is lost, we will not be able to retrieve it and your funds would be locked forever.</li>
+                                                  <li>$EBT coins are internal currency to our EBT Network where you can contribute.</li>
+                                                  <li>The goal of the EBT Community is to establish a globally represented  community, that supports diverse projects and helps each other. </li>
+                                                  <li>
+                                                    One big aspect is the acquisition of land worldwide, either to protect the environment or to create areas where everyone in the Community can live free of charge or take holidays, in accordance with the laws of the respective countries. Thus, we also want to promote alternative lifestyles.
+                                                    Buy now and get 35% discount at 1EBT = $0.0000000065</a></li>
+                                                  
+                                              </ul>
+                                              
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+
+                      </div>
+             
+
+            
+     </div>
+
+
+ 
+           
+           
+
+     <%- include('footer') %>
+
+     <script type="text/javascript">
+      function myFunction() {
+        var copyText = document.getElementById("address");
+        if ($('#address').val() != "") {
+          copyText.select();
+          document.execCommand("copy");
+          alert("Wallet Address is copied.");
+        }
+      }
+    </script>

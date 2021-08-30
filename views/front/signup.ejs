@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="ICO Crypto is a modern and elegant landing page, created for ICO Agencies and digital crypto currency investment website.">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="images2/favicon.png">
+    <!-- Site Title  -->
+    <title>User Center - ICO Crypto</title>
+    <!-- Vendor Bundle CSS -->
+    <link rel="stylesheet" href="assets2/css/vendor.bundle.css?ver=101">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="assets2/css/style.css?ver=101">
+    <style>
+        .error_validate {
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body class="user-ath">
+
+    <div class="user-ath-page">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8 text-center">
+                    <div class="user-ath-logo">
+                        <a href="#">
+                            <img src="images2/logo-sm.png" srcset="images/logo-sm2x.png 2x" alt="icon">
+                        </a>
+                    </div>
+                    <div class="user-ath-box">
+                        <h4 style="color:#08c !important">Create New Account</h4>
+                        <% if(err_msg!=undefined){ %>
+                            <span class="error_validate flash_msg" style="color:red">
+                                <%= err_msg %>
+                            </span>
+                            <% }%>
+                                <form action="/signup" method="post" id="sigupForm" class="user-ath-form">
+                                    <!--
+                            <div class="note note-lg note-no-icon note-danger">
+                                <p>Please check your submited information for error.</p>
+                            </div>
+                            <div class="note note-lg note-no-icon note-success">
+                                <p>Your registration is succesfull, please check you email to confirm.</p>
+                            </div>
+-->
+                                    <div class="input-item">
+                                        <input type="text" name="name" placeholder="Your Name" class="input-bordered"
+                                            data-rule-required="true" data-rule-maxlength="24"
+                                            data-msg-required="Please enter name.">
+                                    </div>
+                                    <div class="input-item">
+                                        <input type="text" name="email" placeholder="Your Email" class="input-bordered"
+                                            data-rule-required="true" data-rule-email="true"
+                                            data-msg-required="Please enter email address."
+                                            data-msg-email="Please enter a valid email address.">
+                                    </div>
+                                    <div class="input-item">
+                                        <input type="password" id="password" name="password" placeholder="Password"
+                                            class="input-bordered" data-rule-minlength="6" data-rule-maxlength="75"
+                                            data-rule-required="true" data-msg-required="Please enter password.">
+
+                                    </div>
+                                    <div class="input-item">
+                                        <input type="password" name="conf_pass" placeholder="Repeat Password"
+                                            class="input-bordered" data-rule-equalto="#password"
+                                            data-rule-required="true"
+                                            data-msg-equalto="Password and confirm password should get match."
+                                            data-msg-required="Please enter confirm password.">
+                                    </div>
+                                    <% if(ref_link!="" && ref_link!=undefined) {%>
+                                        <div class="input-item">
+                                            <label>Ref Code</label>
+                                            <input type="text" name="ref_link" value="<%=ref_link %>"
+                                                class="input-bordered" placeholder="Enter referral code" readonly>
+                                        </div>
+                                        <%}%>
+                                            <div class="input-item text-left">
+                                                <input class="input-checkbox" id="term-condition" type="checkbox"
+                                                    data-rule-required="true" data-msg-required="Please select check."
+                                                    required>
+                                                <label for="term-condition">I agree to <a href="/terms-conditions"
+                                                        style="color: #000000 !important">Terms</a> and <a
+                                                        href="/privacy-policy" style="color: #000000">
+                                                        Policy.</a></label>
+                                            </div>
+                                            <div class="gaps"></div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <button type="submit" class="btn btn-primary">Sign Up</button>
+                                            </div>
+                                </form>
+                                <!--<div class="or-saparator"><span>or</span></div>
+                        <span class="small-heading">Sign in with:</span>-->
+
+                                <!--<ul class="btn-grp guttar-30px">
+                            <li><a href="#" class="btn btn-sm btn-icon btn-facebook"><em class="fab fa-facebook-f"></em>Facebook</a></li>
+                            <li><a href="#" class="btn btn-sm btn-icon btn-google"><em class="fab fa-google"></em>Google</a></li>
+                        </ul>-->
+                    </div>
+                    <div class="gaps-2x"></div>
+                    <div class="form-note">
+                        Already a member? <a href="/login">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript (include all script here) -->
+    <script src="assets2/js/jquery.bundle.js?ver=101"></script>
+    <script src="assets2/js/script.js?ver=101"></script>
+</body>
+
+</html>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+<script type="text/javascript">
+    $('#sigupForm').validate({
+        onfocusout: function (element) {
+            this.element(element);
+        },
+        errorClass: 'error_validate',
+        errorElement: 'span',
+        highlight: function (element, errorClass) {
+            $(element).removeClass(errorClass);
+        },
+        submitHandler: function (form) {
+            $('#submit_login').attr('disabled', true);
+            form.submit();
+        }
+    });
+</script>

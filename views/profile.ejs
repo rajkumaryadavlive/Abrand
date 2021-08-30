@@ -1,0 +1,169 @@
+<% if(session.wallet){ %>
+  <%- include('header') %>
+ <% }else{ %>
+  <%- include('uheader') %>
+ <% }%>
+
+
+<div class="heading-row mb-20">
+    <div class="row align-item-center">
+       <div class="col-lg-6">
+          <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i class="mdi mdi-account"></i></span> Profile Info </h3>
+       </div>
+  </div>
+  </div>
+
+
+<section class="dash-inner-sec">
+    <div class="row">
+             <div class="col-lg-12 col-md-12 m-auto">
+                <div class="mb-3">
+                  <ul class="nav nav-tabs profile-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#info1" role="tab" aria-controls="home" aria-selected="true">User Info</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#info2" role="tab" aria-controls="profile" aria-selected="false">Password</a>
+                    </li>
+                    
+                  </ul>
+                  
+                </div>
+                
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="info1" role="tabpanel" aria-labelledby="home-tab">
+                     <% if(success_msg!=undefined){ %>
+                    <span class="success_validate flash_msg" style="color:green"><%= success_msg %></span>
+                   <% }%>
+                   <% if(err_msg!=undefined){ %>
+                    <span class="error_validate flash_msg" style="color:red"><%= err_msg %></span>
+                   <% }%>
+                    <form method="POST" action="/update-profile" id="profile_form">
+                      <div class="dashboard-box">
+                         <div class="create-wallet-block profile-input-form">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group text-left">
+                                  <label>Full Name</label>
+                                   <input class="form-control" value="<%=result.name%>" name="name" type="text" placeholder="<%=result.name%>" readonly>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group text-left">
+                                  <label>Email ID</label>
+                                   <input class="form-control" type="email" name="email" value="<%=result.email%>" placeholder="<%=result.email%>" readonly>
+                                </div>
+                              </div>
+                             
+                            </div>
+                            <!-- <div class="row">
+                               <div class="col-md-6">
+                                <div class="form-group text-left">
+                                  <label>Mobile Number</label>
+                                   <input class="form-control" name="mob" value="<%=result.mobile_no%>" type="text" placeholder="<%=result.mobile_no%>">
+                                </div>
+                              </div> 
+                              <div class="col-md-6">
+                                <div class="form-group text-left">
+                                  <label>Country</label>
+                                  <input class="form-control" name="Country" value="<%=result.country%>" type="text" placeholder="<%=result.country%>">
+                                </div>
+                              </div>
+                             
+
+                            </div> -->
+                            <div class="text-left mlti-btn mt-3">
+                            <button type="submit" class="btn btn-common light-green ml-0">Save</button>
+                             <% if(session.wallet){ %>
+                              <a type="botton" href="/dashboard"  class="btn btn-common light-green ml-0">Cancel</a>
+                             <% }else{ %>
+                              <a type="botton" href="/Create-wallet-dash"  class="btn btn-common light-green ml-0">Cancel</a>
+                             <% }%>
+                            </div> 
+                         </div>
+                     </div>
+                    </form>
+                    </div>
+                    
+                    
+                    <div class="tab-pane fade" id="info2" role="tabpanel" aria-labelledby="profile-tab">
+                      <form method="POST" action="/submit-change-pass" id="password_form">
+                      <div class="dashboard-box">
+                        <div class="create-wallet-block profile-input-form">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <div class="form-group text-left">
+                                  <label>Current Password</label>
+                                  <!-- <input class="form-control" type="password" placeholder="*******"> -->
+                                  <input class="form-control" type="password" id="password" name="password" placeholder="Current Password" data-rule-minlength="5" data-rule-maxlength="75" data-rule-required="true"  data-msg-required="Please enter current password.">
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group text-left">
+                                  <label>New Password</label>
+                             <!-- <input class="form-control" type="password" placeholder="*******"> -->
+                             <input class="form-control" type="password" id="new_password" name="new_password" placeholder="New Password"  data-rule-minlength="5" data-rule-maxlength="75" data-rule-required="true"  data-msg-required="Please enter new password.">
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group text-left">
+                                   <label>Confirm Password</label>
+                             <!-- <input class="form-control" type="password" placeholder="*******"> -->
+                             <input class="form-control" type="password" id="confrm_password" name="confrm_password"  data-rule-equalto="#new_password" placeholder="confirm password" data-rule-minlength="5" data-rule-maxlength="75" data-rule-required="true"  data-msg-required="Please enter confirm new password." data-msg-equalto="Please enter the same value again.">
+                                </div>
+                              </div>
+                            </div>
+
+                          <div class="text-center mlti-btn">
+                               <button type="submit" class="btn btn-common light-green">Save</button>
+                               <% if(session.wallet){ %>
+                                <a type="botton" href="/dashboard"  class="btn btn-common light-green ml-0">Cancel</a>
+                               <% }else{ %>
+                                <a type="botton" href="/Create-wallet-dash"  class="btn btn-common light-green ml-0">Cancel</a>
+                               <% }%>
+                          </div>
+                        </div>
+                     </div>
+                      
+                    </div>
+                  </div>
+                 </form>
+             </div>
+        </div>
+</section>
+
+<%- include('footer') %>
+
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+$('#profile_form').validate({
+    onfocusout: function(element) {
+      this.element(element);
+    },
+    errorClass: 'error_validate',
+    errorElement:'span',
+    highlight: function(element, errorClass) {
+      $(element).removeClass(errorClass);
+    },
+    submitHandler:function(form)
+    {
+        $('#sbmt_profile').attr('disabled',true);
+        form.submit();
+    }
+});
+
+$(document).ready(function () {
+  var flash_msg=$('.flash_msg').html();
+  if(flash_msg!="" && flash_msg!=undefined)
+  {
+    setTimeout(function(){ $('.flash_msg').html('');},4000);
+  }    
+});
+$(document).ready(function () {
+  var succ_flash_msg=$('.succ_flash_msg').html();
+  if(succ_flash_msg!="" && succ_flash_msg!=undefined)
+  {
+    setTimeout(function(){ $('.succ_flash_msg').html('');},4000);
+  }    
+});        
+</script> 

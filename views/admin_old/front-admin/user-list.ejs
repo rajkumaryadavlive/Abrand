@@ -1,0 +1,153 @@
+<%- include('header') -%>
+
+<style type="text/css">
+  td {
+    max-width: 150px !important;
+    overflow: hidden !important
+  }
+
+  #example_wrapper .dataTables_filter {
+    display: none !important;
+  }
+</style>
+<div class="heading-row mb-20">
+  <div class="row align-item-center">
+    <div class="col-lg-6">
+      <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i
+            class="mdi mdi-phone"></i></span> User List </h3>
+    </div>
+    <div class="col-lg-6">
+
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12 grid-margin stretch-card">
+
+    <div class="card">
+      <div class="card-header">
+        <form class="new-from-search" method="POST" action="/userListByDate">
+
+          <div class="row align-item-center">
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>From</label>
+                <input type="date" class="form-control" name="getMinDate">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>To</label>
+                <input type="date" class="form-control" name="getMaxDate">
+              </div>
+            </div>
+            <div class="col-md-2">
+              
+              <button class="btn btn-common bg-gradient-primary mr-2" style="padding: 9px 12px;"
+                type="submit">Search</button>
+            </div>
+            <div class="col-md-4 ml-auto">
+              <div class="search-wrapper text-right">
+                <div class="input-group">
+                  <input type="text" id="s_field" class="form-control">
+                  <div class="input-group-append">
+                    <button type="button" id="search_btn" class="btn btn-common bg-gradient-primary mr-2"
+                      style="height: auto;padding: 0 12px;min-width: auto;"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+      <div class="card-body table-responsive">
+        <%if(err_msg !="" ){%>
+          <span style="color: red; ">
+            <%= err_msg%>
+          </span>
+          <%}%>
+            <%if(success_msg !="" ){%>
+              <span style="color: #099441; ">
+                <%=success_msg%>
+              </span>
+              <%}%>
+                <table class="table" id="example">
+                  <thead>
+                    <tr>
+                      <th width="5%">S. No.</th>
+                      <th width="15%">Name</th>
+                      <th width="8%">Profile</th>
+                      <th width="15%">Email</th>
+                      <th width="25%">Wallet Address</th>
+                      <th width="10%">Status</th>
+                      <th width="12%">Change Password</th>
+                      <th width="20%">Created At</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody">
+                    <% var i=1; if(user_details.length> 0){
+                      user_details.forEach(function(details){
+                      %>
+
+                      <tr>
+                        <td>
+                          <%- i %>
+                        </td>
+
+                        <td>
+                          <%- details.name%>
+                        </td>
+                        <%if(details.profile_image){%>
+                          <td> <img src="/upload_user_profile/<%=details.profile_image%>"
+                              style="width: 50px;height: 50px;"></td>
+                          <%}else{%>
+                            <td><img src="admin_assets/images/faces-clipart/pic-1.png"
+                                style="width: 50px;height: 50px;"></td>
+                            <%}%>
+                              <td>
+                                <%- details.email%>
+                              </td>
+
+                              <td>
+                                <%- details.wallet_address%>
+                              </td>
+
+                              <td>
+                                <%- details.status%>
+                                  <%if(details.status=="active" ){%>
+                                    <a href="/deactiveUser?id=<%=details.email%>">Deactive</a>
+                                    <%}else{%>
+                                      <a href="/activeUser?id=<%=details.email%>">Active</a>
+                                      <%}%>
+                              </td>
+                              <td><a href="/edit-user?id=<%=details.email%>">Change Password</a></td>
+                              <td>
+                                <%- details.created_at%>
+                              </td>
+
+
+                      </tr>
+
+                      <% i++; }) } %>
+
+                  </tbody>
+                </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <%- include('footer') -%>
+
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+  <script>
+$(document).ready( function () {
+  $('.table').DataTable();
+} );
+</script>

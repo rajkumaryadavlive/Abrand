@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>The POP</title>
+    <!-- plugins:css -->
+    
+    <link rel="stylesheet" href="/admin/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/admin/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="/admin/assets/css/style.css">
+    <link rel="stylesheet" href="/admin/assets/css/custom.css">
+    <link rel="stylesheet" href="/admin/assets/css/nice-select.css">/
+     <link rel="stylesheet" href="/admin/assets/css/select2.min.css">
+     
+    <!-- Font-awesome web fonts with css -->
+    <link href="assetsadmin/css/fontawesome-all.css" rel="stylesheet" type="text/css"/>
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="assetsadmin/images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/fontawesome.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  </head>
+  <body class="sidebar-icon-only">
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+        
+        <%- include('./header') %>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <%- include('./sidebar') %>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            
+                <%- body  %>
+        </div>
+        
+      <!-- content-wrapper ends -->
+        <%- include('./footer') %>
+</div>
+<!-- main-panel ends -->  
+
+</div>
+<!-- page-body-wrapper ends -->
+  
+<style>
+  .content-wrapper {
+    background: #f2edf3;
+    padding: 1.5rem;
+    width: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    padding-top: 87px!important;
+}
+</style>
+
+
+</div>
+<!-- container-scroller -->
+<!-- plugins:js -->
+<script src="assetsadmin/vendors/js/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="assetsadmin/vendors/chart.js/Chart.min.js"></script>
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="assetsadmin/js/off-canvas.js"></script>
+<script src="assetsadmin/js/hoverable-collapse.js"></script>
+<script src="assetsadmin/js/misc.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page -->
+<script src="assetsadmin/js/dashboard.js"></script>
+<script src="assetsadmin/js/todolist.js"></script>
+<!-- End custom js for this page -->
+<!-- Custom js for this page -->
+<script src="assetsadmin/js/file-upload.js"></script>
+
+<script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+<script>
+CKEDITOR.replace( 'editor1' );
+</script>
+
+<script src="assetsadmin/js/select2.full.min.js"></script>
+
+<script>
+$(function () {
+$("#select-new").select2();
+$("#select-new1").select2();
+$("#select-new2").select2();
+$("#select-new3").select2();
+$("#select-new4").select2();
+$("#select-new5").select2();
+});
+</script>
+
+
+
+<script src="assetsadmin/js/jquery.nice-select.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
+
+<script>
+$(document).ready(function() {
+$('select:not(.ignore)').niceSelect();      
+FastClick.attach(document.body);
+});    
+</script>
+
+
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+$( "#datepicker" ).datepicker();
+$( "#datepicker1" ).datepicker();
+} );
+</script>
+<script>
+$('#datepicker1').datepicker({
+changeMonth: false,
+changeYear: true,
+showButtonPanel: true,
+dateFormat: 'yy',
+onClose: function(dateText, inst) { 
+  var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+  $(this).datepicker('setDate', new Date(year, 0, 1));
+}});
+</script>
+
+
+
+</body>
+
+
+</html>

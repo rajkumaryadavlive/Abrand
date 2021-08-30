@@ -1,0 +1,113 @@
+<%- include('./partials/header') %>
+
+  <body>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
+        <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
+          <div class="row w-100">
+            <div class="col-lg-4 mx-auto">
+              <div class="auto-form-wrapper">
+                <% if(fail!=undefined) { %>
+                  <div class="alert alert-danger">
+                    <%=fail%>
+                  </div>
+                  <% } %>
+                    <% if(success_logout!=undefined) { %>
+                      <div class="alert alert-success">
+                        <%=success_logout%>
+                      </div>
+                      <% } %>
+
+                        <form action="/submit-details" method="post" id="loginform">
+                          <div class="form-group">
+                            <label class="label">Email</label>
+                            <div class="input-group">
+                              <input type="text" name="username" class="form-control" placeholder="Username"
+                                data-rule-required="true" data-rule-email="true"
+                                data-msg-required="Please Enter valid Email.">
+                              <div class="input-group-append">
+                                <span class="input-group-text">
+                                  <i class="mdi mdi-check-circle-outline"></i>
+                                </span>
+                              </div>
+                            </div>
+                            <span for="username" class="error_validate"></span>
+                          </div>
+                          <div class="form-group">
+                            <label class="label">Password</label>
+                            <div class="input-group">
+                              <input type="password" name="password" class="form-control" placeholder="*********"
+                                data-rule-required="true" data-msg-required="Please Enter Password.">
+                              <div class="input-group-append">
+                                <span class="input-group-text">
+                                  <i class="mdi mdi-check-circle-outline"></i>
+                                </span>
+                              </div>
+                            </div>
+                            <span for="password" class="error_validate"></span>
+                          </div>
+                          <div class="form-group">
+                            <button class="btn btn-primary submit-btn btn-block" type="submit">Login</button>
+                          </div>
+                          <div class="form-group d-flex justify-content-between">
+                            <!--  <div class="form-check form-check-flat mt-0">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" checked> Keep me signed in
+                    </label>
+                  </div> -->
+                            <a href="/forgot" class="text-small forgot-password text-black">Forgot Password</a>
+                          </div>
+                        </form>
+              </div>
+              <ul class="auth-footer">
+                <li>
+                  <a href="#"></a>
+                </li>
+                <li>
+                  <a href="#"></a>
+                </li>
+                <li>
+                  <a href="#"></a>
+                </li>
+              </ul>
+              <p class="footer-text text-center">copyright © 2019 ARTW. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="admin_assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="admin_assets/vendors/js/vendor.bundle.addons.js"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="admin_assets/js/off-canvas.js"></script>
+    <script src="admin_assets/js/misc.js"></script>
+    <script src="admin_assets/js/jquery.validate.min.js"></script>
+    <script src="admin_assets/js/jquery.validate.min.js"></script>
+
+    <script type="text/javascript">
+      // var Jqry=$.noConflict();
+
+      $(document).ready(function () {
+
+        $('#loginform').validate({
+          onfocusout: function (element) {
+            this.element(element);
+          },
+          errorClass: 'error_validate',
+          errorElement: 'span',
+          highlight: function (element, errorClass) {
+            $(element).removeClass(errorClass);
+          }
+        });
+
+      });
+    </script>
+    <!-- endinject -->
+  </body>
+
+  </html>

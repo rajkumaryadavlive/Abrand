@@ -1,0 +1,367 @@
+<%- include('header') %>
+
+  <div class="page-header">
+    <h3 class="page-title">
+      <span class="page-title-icon bg-gradient-primary text-white mr-2">
+        <i class="mdi mdi-home"></i>
+      </span> Buy Coin
+    </h3>
+
+  </div>
+  <section class="dash-inner-sec token for-token-page">
+    <div class="card-content for-equal-only">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+
+          <div class=" buy-upper card pull-up buy-token mb-3">
+            <div class="card-content collapse show">
+              <div class="card-body">
+                <div class="bitcoin-flex-box">
+                  <img src="assets/images/eth-icon.png" alt="Bitcoin Icon">
+                  <div class="center-box">
+                    <h6>Coin</h6>
+                    <div class="form-group m-0">
+                      <select class="form-control"
+                        style="box-shadow: none;outline: none;border: 1px solid #ddd !important;background-color: transparent !important;"
+                        onchange="changeCurrency(this.value);">
+                        
+                        <option value="eth">ETH</option>
+                        <option value="bnb">BNB</option>
+                        <option value="usdt">USDT</option>
+                        <option value="btc">BTC</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center"
+                  action="https://pixinvent.com/demo/crypto-ico-admin/html/ltr/vertical-menu/buy-ico.html">
+                  <div class="col-lg-2 col-md-3 col-12">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card steps-card text-center">
+            <div class="card-content collapse show">
+              <div class="card-body">
+                <div class="font-small-3 token-balance clearfix">
+                  <h6 class="hbg my-2 text-left">5 step guide</h6>
+                  <ol class="text-left four-step-list">
+                    <li>Calculate how much $EBTs you want to buy.</li>
+                    <li>Copy/Scan the displayed address</li>
+                    <li>Send your ETH/BNB/BTC/USDT to that address. You may send it right from your exchange.</li>
+                    <li>Upon transaction confirmation, please fill in your transaction details (Bitcoin Wallet address,
+                      Ethereum Wallet address and transaction ID) in the form. We need Ethereum wallet address so that
+                      we can transfer $EBT coins to you.</li>
+                    <li>Our team will verify the transaction and will send your $EBT tokens within 48 hours which will
+                      be reflected in your wallet.</li>
+                  </ol>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <div class="dashboard-box shadow-box side-box-by-now">
+            <form action="/ETH" method="POST" id="ethereum" onsubmit="show_alert()">
+
+              <div class="form-body">
+                <div class="row">
+                  <div class="col-12 col-lg-5 col-md-12">
+                    <div class="form-group row align-items-center">
+                      <label class="col-4 pr-0 mb-0 label-control" for="projectinput1">BUY<span
+                          style="color:red;">*</span></label>
+                      <fieldset class="col-8 pl-0">
+                        <div class="input-group">
+                          <input type="text" class="form-control" data-rule-number="true" name="usd" id="usd"
+                            data-rule-min="1" data-msg-min="You have to buy minimum 1 $EBT." data-rule-required="true"
+                            data-msg-required="Please enter value in digit." aria-describedby="basic-addon4"
+                            onkeyup="multiby(this.value,`<%=ebt%>`)" required>
+                          <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon4">USD</span>
+                          </div>
+                        </div>
+                        <input type="hidden" name="currencyValue" id="currencyValue">
+                      </fieldset>
+                      <span for="rowan" class="error_validate" id="rowan_err"></span>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-2 col-md-12">
+                    <fieldset class="col-12">
+                      <p class="mb-0 text-center font-medium-5">=</p>
+                    </fieldset>
+                  </div>
+                  <div class="col-12 col-lg-5 col-md-12">
+                    <div class="form-group row">
+                      <fieldset class="col-12">
+                        <div class="input-group">
+                          <input class="form-control" id="eth" aria-describedby="basic-addon4" value="" readonly=""
+                            name="eth" type="text">
+                          <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon-curr"></span>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" value="<%=ebt%>" name="rate_per_ebt" id="rate_per_ebteth">
+             
+              <p  class="font-italic value-coin-line mx-1 mb-2">1EBT = 0.0000000065$</p>  
+
+              <p class="font-italic value-coin-line mx-1 mb-2"id="total_ebt"> </p>
+              <p class="font-italic value-coin-line mx-1 mb-2"id="total_amount"> </p>
+
+
+              <!-- <p class="font-italic value-coin-line mt-3 mx-1 mb-2"> <b>1 TOKEN = 23 TRX</b></p> -->
+              <div class="col-md-12 p-0">
+                <div id="tran_wallet">
+
+                  <!-- <div class="form-group">
+                      <div class="row">
+                          <label class="control-label col-sm-5">Sender's Bitcoin Wallet Address<span style="color:red;">*</span></label>
+                      <div class="col-sm-7">
+                        <input type="text" class="form-control secure" id="bit_wallet_address" name="bit_wallet_address" data-rule-required="true" data-msg-required="Please enter Wallet Address." >
+                      </div>
+                      </div>
+                    </div> -->
+                  <div class="form-group">
+                    <div class="row">
+                      <label class="control-label col-sm-5">EBT Wallet Address<span
+                          style="color:red;">*</span></label>
+                      <!-- <div class="col-sm-6">
+                        <input type="text" class="form-control secure" value="0x0296b77A92Ee270b8a0b157Cc744E9f102af6C51" id="eth_wallet_address" name="eth_wallet_address" data-rule-required="true" data-msg-required="Please enter Ethereum Wallet Address." readonly="" >
+                        
+                        <a onclick="myFunction()" href="javascript:void(0);"><i class="fa fa-copy"></i></a>
+                      </div> -->
+                      <div class="input-group col-sm-7 input-dash copy-id-dash">
+                        <input type="text" class="form-control secure"
+                          value="0xcB99B8269a22fa818Fb766B10Af612Fe97CC463d" id="eth_wallet_address" name="eth_wallet_address" data-rule-required="true"
+                          data-msg-required="Please enter Ethereum Wallet Address." readonly="">
+                        <a onclick="myFunction()" href="javascript:void(0);"><i class="fa fa-copy"></i></a>
+
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <label class="control-label col-sm-5">Reference/Transaction ID</label>
+                      <div class="col-sm-7">
+                        <input type="text" class="form-control secure" id="transaction_id" name="transaction_id"
+                          required>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="row">
+                      <label class="control-label col-sm-5">User Wallet Address</label>
+                      <div class="col-sm-7">
+                        <input type="text" class="form-control secure" value="<%=wallet_details.wallet_address %>" id="user_wallet_address" name="user_wallet_address" data-rule-required="true" data-msg-required="Please enter Ethereum Wallet Address." readonly="" >
+                        <!-- <input type="text" class="form-control secure" id="user_wallet_address" name="user_wallet_address" required> -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="row">
+                      <label class="control-label col-sm-5">Upload Screenshot</label>
+                      <div class="col-sm-7">
+                        <div class="input-group file-input">
+                          <input type="text" class="form-control file-upload-text" disabled=""
+                            placeholder="select a file...">
+                          <button type="button" class="btn btn-common light-green file-upload-btn upload-btn p-0">
+                            Upload
+                            <input type="file" class="file-upload" data-rule-required="true"
+                              data-msg-required="Please upload Payment Screenshot" name="transactionImage"
+                              id="file-input-1" style="width: 0;" placeholder="No File Selected" required>
+                            <span class="input-group-btn">
+                            </span></button>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--  <div class="form-group" >
+                          <div class="form-check form-check-flat form-check-primary">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input"> If did not remember and you have a screen shot of transaction id and wallet address then click here.</label>
+                        </div>
+                      </div> -->
+                </div>
+
+                <div class="form-group mt-4">
+
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" data-rule-required="true"
+                      data-msg-required="Please Accept Terms & Conditions" value="" required>
+                      <span class="cr"><i class="fa fa-check cr-icon"></i></span>
+                      I agree with terms and conditions of $EBT.
+                    </label>
+                  </div>
+                </div>
+
+                <input type="hidden" name="_csrf" value="" />
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="btn-block">
+                        <button type="submit" class="btn btn-common light-green">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </form>
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+<style>
+  span#basic-addon-curr {
+    text-transform: uppercase;
+}
+.nice-select.open .list:hover {
+    width: 100%;
+    background: #000 !important;
+}
+</style>
+
+
+  <%- include('footer') %>
+    <script>
+      function initializeFileUploads() {
+        $('.file-upload').change(function () {
+          var file = $(this).val();
+
+          var parts = file.split("\\");
+          var lastpart = parts[parts.length - 1]
+          //alert("file"+lastpart);
+          $(this).closest('.input-group').find('.file-upload-text').val(lastpart);
+        });
+        $('.file-upload-btn').click(function () {
+          $(this).find('.file-upload').trigger('click');
+        });
+        $('.file-upload').click(function (e) {
+          e.stopPropagation();
+        });
+      }
+
+
+      // On document load:
+      $(function () {
+        initializeFileUploads();
+      });
+    </script>
+    <script>
+      function multiby(val, nem) {
+        let rate = $("#currencyValue").val();
+        // alert(rate);
+        let n = parseFloat(val) * parseFloat(rate);
+
+        let total=parseFloat(val)*153846153.846;
+
+        let amount=total*rate;
+
+        document.getElementById("eth").value = n;
+        document.getElementById("total_ebt").innerHTML="Total EBT you will get="+total.toLocaleString();
+       // document.getElementById("total_amount").innerHTML=amount;
+
+        //$("#total_ebt").val(total);
+
+        //$("#amount_total").val(amount);
+
+        console.log(total);
+        console.log(amount);
+
+      };
+    </script>
+
+    <script type="text/javascript">
+      function myFunction() {
+        var copyText = document.getElementById("eth_wallet_address");
+        if ($('#eth_wallet_address').val() != "") {
+          copyText.select();
+          document.execCommand("copy");
+          alert("wallet address is copied.");
+        }
+      }
+    </script>
+
+    <script>
+      function show_alert() {
+        if (!confirm("Thankyou!, Request has been sent successfully and you will get the ebt in your account after your payment verification. Return to Dashboard")) {
+          return false;
+        }
+        this.form.submit();
+      }
+    </script>
+    <script>
+       window.onload = function() {
+        changeCurrency("eth");
+      };
+      function changeCurrency(currencyType) {
+        // alert(currencyType);
+        
+        if(currencyType=="eth")
+          {
+               let wallet_address="0xcB99B8269a22fa818Fb766B10Af612Fe97CC463d";
+               document.getElementById("eth_wallet_address").value = wallet_address;
+
+          }
+          else if(currencyType=="btc")
+          {
+              let wallet_address="bc1q5n0ry5k4zxjv4a4cdg6neuvfdyh290gej9fluw";
+               document.getElementById("eth_wallet_address").value = wallet_address;
+          }
+          else if(currencyType=="bnb")
+          {
+             let wallet_address="bnb1xp3pycd9qldu0ndkn2qhzs2ljyr94h20zwgsgt";
+               document.getElementById("eth_wallet_address").value = wallet_address;
+          }
+           else if(currencyType=="usdt")
+           {
+              let wallet_address="0xcB99B8269a22fa818Fb766B10Af612Fe97CC463d";
+               document.getElementById("eth_wallet_address").value = wallet_address;
+           }
+           else
+           {
+              let wallet_address="0xcB99B8269a22fa818Fb766B10Af612Fe97CC463d";
+               document.getElementById("eth_wallet_address").value = wallet_address;
+           }
+        
+        $.ajax({
+          type: 'post',
+          url: '/currency-value',
+          data: { currencyType: currencyType },
+          success: function (res) {
+            console.log(res);
+            // alert(res.value);
+            $("#currencyValue").val(res.value);
+            document.getElementById("usd").value = 0;
+            document.getElementById("eth").value = 0;
+
+             document.getElementById("basic-addon-curr").innerHTML=currencyType;
+
+          }
+        });
+
+      }
+
+     
+    </script>

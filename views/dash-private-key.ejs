@@ -1,0 +1,110 @@
+<%- include('uheader') %>
+
+<div class="page-header">
+    <h3 class="page-title">
+      <span class="page-title-icon bg-gradient-primary text-white mr-2">
+        <i class="mdi mdi-home"></i>
+      </span> Create Wallet </h3>
+  </div>
+
+
+<section class="dash-inner-sec">
+     <div class="row">
+             <div class="col-lg-6 col-md-12">
+              <form id="create_wallet" action="verify-key" method="POST">
+                 <div class="dashboard-box  wow slideInUp">
+                     <div class="create-wallet-block">
+
+                           <h3 class="main-heading">Yes Let's get set up.</h3> 
+                          
+                           <p class="head-commn-text">This will create a new wallet.</p>
+
+                            <h4 class="green-heading">Here is your Private Key. You must copy it <br> and save it  a secure place.</h4>
+                           
+                            <div class="input-group input-dash copy-id-dash">
+                              <input class="form-control"  type="text"  value="<%= passphrase%>" name="passphrase" id="passphrase"  data-rule-required="true"  data-msg-required="Please enter Passphrase." readonly>
+                                <a onclick="myFunction()" href="javascript:void(0);"><i class="fa fa-copy"></i></a>
+                               <!--  <div class="input-group-append">
+                               <span class="input-group-text" id="basic-addon2"><a href="#"><i class="fa fa-copy"></i></a></span>
+                             </div> -->
+                           </div>
+                        <div class="clearfix">
+                            <span class=""><b><i class="fa fa-info-circle"></i> Make sure you keep the Private Key safe. You will be asked to re-type it for cofirmation.</b></span>
+                          </div>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" value="" required>
+                            <span class="cr"><i class="fa fa-check cr-icon"></i></span>
+                            I agree with <a href="/terms-condition">terms and conditions</a> of $EBT.
+                          </label>
+                        </div>
+
+                        <div class="text-center mlti-btn">
+                          <a href="javascript:void(0);" download="info.txt" id="download" class="btn btn-common light-green">Download</a>
+                           <button class="btn btn-common light-green" id="submit_wallet" type="submit">Next</button>
+                      </div>
+                        </div>
+                 </div>
+                 </form>
+             </div>
+             <div class="col-lg-6">
+               <div class="img-box-side">
+                 <img src="assets/images/wallet-img.jpg" class="img-fluid">
+               </div>
+             </div>
+        </div>
+</section>
+
+
+
+
+<%- include('footer') %>
+
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+$('#create_wallet').validate({
+      onfocusout: function(element) {
+      this.element(element);
+      },
+      errorClass: 'error_validate',
+      errorElement:'span',
+      highlight: function(element, errorClass) {
+      $(element).removeClass(errorClass);
+      },
+      submitHandler:function(form)
+         {
+                 $('#submit_wallet').attr('disabled',true);
+                 form.submit();
+         }
+      });
+</script> 
+<script type="text/javascript">
+function myFunction() {
+  var copyText = document.getElementById("passphrase");
+  if($('#passphrase').val() !="")
+  {
+  copyText.select();
+  document.execCommand("copy");
+  alert("Passphrase is copied.");
+  }  
+}  
+</script>
+<script type="text/javascript">
+(function () {
+var textFile = null,
+  makeTextFile = function (text) {
+    var data = new Blob([text], {type: 'text/plain'});
+    if (textFile !== null) {
+      window.URL.revokeObjectURL(textFile);
+    }
+    textFile = window.URL.createObjectURL(data);
+    return textFile;
+  };
+  var create = document.getElementById('download'),
+    textbox = document.getElementById('passphrase');
+  create.addEventListener('click', function () {
+    var link = document.getElementById('download');
+    link.href = makeTextFile(textbox.value);
+  }, false);
+})();
+</script>

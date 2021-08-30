@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ETHEREUM BUCKEYE TOKEN</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <!-- Bootstrap Core CSS -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap-dropdownhover.min.css" rel="stylesheet" />
+    <!-- slick CSS -->
+    <link href="../assets/css/slick.css" rel="stylesheet" />
+    <link href="../assets/css/slick-theme.css" rel="stylesheet" />
+    <!-- Animate CSS -->
+    <link href="../assets/css/animate.css" rel="stylesheet" />
+    <!-- hover-min CSS -->
+    <link href="../assets/css/hover-min.css" rel="stylesheet" />
+    <!-- yamm css -->
+    <link href="../assets/css/yamm.css" rel="stylesheet" />
+    <!-- Font-awesome web fonts with css -->
+    <link href="../assets/css/fontawesome-all.css" rel="stylesheet" type="text/css" />
+    <!-- Font-awesome web fonts with css -->
+    <!-- loader css -->
+    <link href="../assets/css/loader.css" rel="stylesheet" />
+    <link href="../assets/css/timeline.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <!--  <link href="../assets/css/custom-home-new.css" rel="stylesheet"/> -->
+    <link href="../assets/css/custom-llc.css" rel="stylesheet" />
+    <link href="../assets/css/custom-ebt.css" rel="stylesheet" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/jquery-ui.css">
+
+    <style>
+        .sec-banner .countdown {
+            font-weight: 600;
+            font-size: 30px;
+            color: #000;
+            text-align: center;
+            background: linear-gradient(to bottom, #e1c879 50%, #D7B64D 50%);
+            background: -webkit-linear-gradient(top, #e1c879 50%, #D7B64D 50%);
+            background: -o-linear-gradient(top, #e1c879 50%, #D7B64D 50%);
+            background: linear-gradient(to bottom, #e1c879 50%, #D7B64D 50%);
+            width: 56px;
+            height: 58px;
+            border-radius: 10px;
+            padding-top: 6px;
+            margin-bottom: 5px;
+            position: relative;
+            margin: 0 auto 7px;
+        }
+
+        .sec-banner .countdown.last {
+            /*-- background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #6f2468), color-stop(50%, #e59f15));--*/
+            background: linear-gradient(to bottom, #e1c879 50%, #D7B64D 50%);
+            background: -webkit-linear-gradient(top, #e1c879 50%, #D7B64D 50%);
+            background: -o-linear-gradient(top, #e1c879 50%, #D7B64D 50%);
+            background: linear-gradient(to bottom, #e1c879 50%, #D7B64D 50%);
+        }
+
+        .sec-banner .counter-text {
+            font-size: 13px;
+            color: #D7B64D;
+            text-align: center;
+
+        }
+
+        .sec-banner .countdown::after {
+            content: ":";
+            position: absolute;
+            right: -17px;
+            color: #fff;
+            top: 25px;
+            font-size: 37px;
+            line-height: 0;
+        }
+
+        .sec-banner .countdown.last::after {
+            content: none;
+        }
+
+        .sec-banner .timer {
+            display: inline-block;
+            margin: 10px 10px 20px;
+        }
+
+        .banner-inner-text p {
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+        .extra-links.social-links ul {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .extra-links ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 0 15px;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        .extra-links ul li a {
+            color: #fff;
+            text-decoration: none;
+            outline: none;
+            display: block;
+            font-size: 25px;
+        }
+
+
+        .video-stream-sec {
+            border-top: 1px solid #d7b64d;
+            border-bottom: 1px solid #d7b64d;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 90px 0 60px;
+            margin: 60px 0 20px;
+            background-image: url(assets/images/bg-network.jpg);
+            background-position: center left;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-blend-mode: multiply;
+        }
+
+        .header-main.index-header .navbar .nav-link.sign-up-btn {
+            color: #000 !important;
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .header-main.index-header.bg-color .navbar .nav-link.sign-up-btn {
+            color: #000 !important;
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .header-main.index-header .nav-link.sign-up-btn.purple-btn-index.golden-btn {
+            margin-left: 10px;
+            background-image: url(assets/images/new-img/golden-bg.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: #000 !important;
+            font-weight: 700;
+            font-size: 18px !important;
+            animation: zoom-in-zoom-out 1s ease infinite;
+        }
+
+        @keyframes zoom-in-zoom-out {
+            0% {
+                transform: scale(1, 1);
+            }
+
+            50% {
+                transform: scale(1.03, 1.03);
+            }
+
+            100% {
+                transform: scale(1, 1);
+            }
+        }
+    </style>
+
+</head>
+
+<body class="index-body">
+
+    <!-- normal header -->
+
+
+    <header class="header-main index-header">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light p-2">
+                <a class="navbar-brand logo" href="/">
+
+                    <h1><img src="../assets/images/logo-white.png" class="color-logo" alt=" Logo"> &nbsp; ETHEREUM
+                        BUCKEYE TOKEN</h1>
+
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navigation" id="main-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About EBT</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#roadmap">Roadmap</a>
+
+
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#team">EBT Team</a>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link sign-up-btn purple-btn-index" href="login">Login</a>
+                        </li>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link sign-up-btn purple-btn-index golden-btn" href="#live-stream">Live
+                                Streaming</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+
+
+    <section class="sec-banner page-section" id="home">
+        <div class="container-fluid p-0">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="outer-banner">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="banner-slider">
+                                    <div class="item">
+                                        <img src="../assets/images/banner.png" class="img-fluid">
+                                        <div class="banner-inner-text">
+                                            <div>
+                                                <h2>Rate 1EBT = $0.00000001:<br /> "THE PEOPLE'S COIN"</h2>
+                                                <div>
+                                                    <div class="timer">
+                                                        <div id="daysTicker" class="countdown"></div>
+                                                        <div class="counter-text">DAYS</div>
+                                                    </div>
+                                                    <div class="timer">
+                                                        <div id="hoursTicker" class="countdown"></div>
+                                                        <div class="counter-text">HOURS</div>
+                                                    </div>
+                                                    <div class="timer">
+                                                        <div id="minsTicker" class="countdown"></div>
+                                                        <div class="counter-text">MINUTES</div>
+                                                    </div>
+                                                    <div class="timer">
+                                                        <div id="secsTicker" class="countdown last"></div>
+                                                        <div class="counter-text">SECONDS</div>
+                                                    </div>
+                                                </div>
+                                                <h2>Buy now and get 35% discount at $0.0000000065</h2>
+                                                <p>Ethereum Buckeye Token was formed by a group of local advocates in
+                                                    Cleveland Ohio with the intention of being a charitable token of
+                                                    choice on the ERC-20 black chain! We began as a small organic idea
+                                                    and have formed into a group large enough to advocate for EBT’s
+                                                    acceptance nationwide. “EBT ACCEPTED HERE” will soon be in
+                                                    businesses and organizations all over North America.</p>
+                                                <div class="banner-btn">
+                                                    <a href="https://t.me/ETHEREUMBUCKEYETOKEN" target="_blank"
+                                                        class="purple-btn-index"><i class="fab fa-telegram-plane"></i>
+                                                        Join Us Now</a>
+                                                    <a href="../assets/ETHEREUMBUCKEYETOKEN.pdf" target="_blank"
+                                                        class="purple-btn-index">Litepaper</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-us ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="common-big-heading text-center mb-5">EBT Sponsors </h4>
+                </div>
+            </div>
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <div class="partner-slider">
+                        <div class="item">
+                            <div class="partner-box">
+                                The Awakening Agenda
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                Third World Investors
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                Armond Perry
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                E and A Tax Prep
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                RichyyOtto
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                King Solomon X
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                NVASION
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                AD Babysitting
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                Memphis Hot Wings
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                School Uniforms
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                Mike Smith
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                Jeepers Creepers
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                ProdbyLevent
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                T.H.E. U.A.I.
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                Caribbean Connection
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                NJD Cleaning
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                Myyaroma
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                HolyBrows
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                Village Mart
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                Magic Wireless
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                B Connected Wireless
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                Summit Clothing
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="partner-box">
+                                Smooth Wireless
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="about-us">
+        <div class="container">
+            <div class="row align-item-center">
+                <div class="col-md-9 m-auto">
+                    <div class="bg-ifram">
+                        <video width="100%" height="450" controls style="background-color: #000;">
+                            <source src="../assets/video.MOV" type="video/mp4">
+                        </video>
+                        <!--  <iframe width="100%" height="450" src="https://www.youtube.com/embed/Vrs1j3qZ8w0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-us page-section" id="about">
+        <div class="container">
+            <div class="row align-item-center">
+                <div class="col-md-6 offset-md-1">
+                    <div class="about-text-inner wow slideInLeft">
+                        <h4 class="common-big-heading">About Us </h4>
+                        <p>The team is formed of charitable organizations, stock market groups, crypto organizations,
+                            and many more. At the end of the day we are all people who collectively would like to raise
+                            money for communities that are really in need. At the same time we recognize the need for a
+                            reputable alt-coin on the ERC-20 chain that actually stands for the people! We are here to
+                            fill the void.</p>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="about-img-big wow slideInRight">
+                        <img src="../assets/images/logo-white.png" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="about-us">
+        <div class="container">
+            <div class="row align-item-center">
+                <div class="col-md-5  order-2">
+                    <div class="about-text-inner wow slideInRight">
+                        <h3 class="main-heading-index-new wow slideInLeft"><span>01</span><b>COMMUNITY TRANSPARENCY</b>
+                        </h3>
+                        <p>Without community transparency we would be just like any other project. To differentiate from
+                            the usual narrative we have implemented the following internal controls!</p>
+                        <ul>
+                            <li>Owner wallet information pinned to website and telegram for entire life of project</li>
+                            <li>Road map will be executed and not deviated from unless absolutely necessary</li>
+                            <li>Voice chat open 24/7 for launch week and AMA held every Saturday night</li>
+                            <li>Constant engagement from mods and admins to all stakeholders </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-5 offset-md-1 ">
+                    <div class="about-img wow slideInLeft">
+                        <img src="assets/images/img1.png" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-item-center mt-5">
+                <div class="col-md-5 offset-md-1">
+                    <div class="about-text-inner wow slideInLeft">
+                        <h3 class="main-heading-index-new wow slideInLeft"><span>02</span><b>CHAIN BASED CHARITY</b>
+                        </h3>
+                        <p>We are an organization that is designed to give our holders an opportunity to
+                            make a living while they are still at home with their families. Through $EBT you
+                            are able to earn 2% reflections on all your holdings. This means that for every
+                            purchase and sale of the coin we as a community will see an increase in our
+                            holdings. Additionally 2% of all transactions will be sent to the burn wallet
+                            essentially significantly ever increasing the value of coins in circulation. Lastly
+                            2% of all transactions will be sent to the community wallet. These funds will be
+                            used for promotional, charitable and otherwise project related expenses.
+                            These funds will not be released until both the original owners and the
+                            community elected mods decide so. This wallet will also be used to airdrop all
+                            holders free coins periodically.</p>
+
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="about-img wow slideInRight">
+                        <img src="assets/images/img2.png" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 m-auto ">
+                    <div class="text-center">
+                        <img src="assets/images/graph.png" class="img-fluid w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-us page-section" id="roadmap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="common-big-heading text-center">Roadmap </h4>
+                    <section class="ps-timeline-sec">
+                        <div class="container">
+                            <ol class="ps-timeline">
+                                <li>
+                                    <div class="img-handler-bot">
+                                        <ul>
+                                            <li>Publicize coin logo</li>
+                                            <li>Release news of project</li>
+                                            <li>Organize Cleveland, OH members</li>
+                                            <li>Host pre-launch release party</li>
+                                            <li>Order 50 EBT/KILLTHEZERO shirts</li>
+                                            <li>500 members in Telegram </li>
+                                            <li>8,000 followers Instagram</li>
+                                            <li>Create Twitter</li>
+                                            <li>$1,000 donated to charity</li>
+                                        </ul>
+                                    </div>
+                                    <div class="ps-top">
+                                        <p>July <br>2021</p>
+                                    </div>
+                                    <span class="ps-sp-bot">
+                                        <img src="../assets/images/logo-white.png" class="img-fluid">
+                                    </span>
+                                </li>
+                                <li>
+                                    <div class="img-handler-top">
+                                        <ul>
+                                            <li>Pre launch</li>
+                                            <li>Host live twitch party</li>
+                                            <li>1,000 members telegram</li>
+                                            <li>8,500 followed Instagram</li>
+                                            <li>100 followers Twitter</li>
+                                            <li>Get audited by reputable agency</li>
+                                            <li>$2,500 donated to charity</li>
+                                        </ul>
+                                    </div>
+                                    <div class="ps-top">
+                                        <p>August 2021</p>
+                                    </div>
+                                    <span class="ps-sp-bot">
+                                        <img src="../assets/images/logo-white.png" class="img-fluid">
+                                    </span>
+                                </li>
+                                <li>
+                                    <div class="img-handler-bot">
+                                        <ul>
+                                            <li>Launch EBT with anti-bot, anti-whale, and anti-sniper security</li>
+                                            <li>Make sure all coin holders have access to lite paper and tokenomics
+                                            </li>
+                                            <li>Release list of businesses endorsing EBT</li>
+                                            <li>Release list of organizations endorsing EBT</li>
+                                            <li>$10,000 donated to charity</li>
+                                        </ul>
+                                    </div>
+                                    <div class="ps-top">
+                                        <p>September 2021</p>
+                                    </div>
+                                    <span class="ps-sp-bot">
+                                        <img src="../assets/images/logo-white.png" class="img-fluid">
+                                    </span>
+                                </li>
+
+
+                            </ol>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-stream-sec  page-section" id="live-stream">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 m-auto">
+                    <h4 class="common-big-heading text-center mb-5">Live Video Streaming</h4>
+                    <div class="bg-ifram">
+                        <iframe width="100%" height="290" src="https://www.youtube.com/embed/NwfeXdimOus"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="rocket-fuel-sec  page-section" id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="extra-links social-links">
+                        <ul class="mb-0">
+                            <li>
+                                <a href="https://t.me/ETHEREUMBUCKEYETOKEN" target="_blank"><span><i
+                                            class="fab fa-telegram-plane"></i></span></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/ethereumbuckeyetoken/?utm_medium=copy_link"
+                                    target="_blank"><span><i class="fab fa-instagram"></i></span></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/ethereumbuckeye?s=11" target="_blank"><span><i
+                                            class="fab fa-twitter"></i></span></a>
+                            </li>
+                            <li>
+                                <a href="https://chat.whatsapp.com/KkU1XAxLqCh0bKoh50OIyj" target="_blank"><span><i
+                                            class="fab fa-whatsapp"></i></span></a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+
+                    <h4 class="common-big-heading text-center mb-5">Our Team</h4>
+                </div>
+            </div>
+            <div class="row wow slideInUp">
+                <div class="col-md-3">
+                    <div class=" color-white">
+                        <div class="team-box-new">
+                            <img src="assets/images/Abu_Bakar.jpeg" class="img-fluid">
+                            <h5 class="sub-heading">Abu-Bakr Jackson</h5>
+                            <p>Co-Founder and President</p>
+                            <p>
+                                <a href="https://instagram.com/eandataxprep?utm_medium=copy_link" target="_blank"><i
+                                        class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/bakr-jackson-1a80b9218" target="_blank"><i
+                                        class="fab fa-linkedin"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class=" color-white">
+                        <div class="team-box-new">
+                            <img src="assets/images/David_Dahabiyeh.jpeg" class="img-fluid">
+                            <h5 class="sub-heading">David Dahabiyeh</h5>
+                            <p>Co-Founder and Vice President</p>
+                            <p>
+                                <a href="https://instagram.com/daviddahabiyeh?utm_medium=copy_link" target="_blank"><i
+                                        class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/david-dahabiyeh-b77259218" target="_blank"><i
+                                        class="fab fa-linkedin"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class=" color-white">
+                        <div class="team-box-new">
+                            <img src="assets/images/kind-soloman.png" class="img-fluid">
+                            <h5 class="sub-heading">Solomon X </h5>
+                            <p>Community Engagement</p>
+                            <p>
+                                <a href="https://instagram.com/king_soloman_x?utm_medium=copy_link" target="_blank"><i
+                                        class="fab fa-instagram"></i></a>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class=" color-white">
+                        <div class="team-box-new">
+                            <img src="assets/images/JahX.jpeg" class="img-fluid">
+                            <h5 class="sub-heading">Jah X</h5>
+                            <p>Charitable Coordinator</p>
+                            <p>
+                                <a href="https://instagram.com/chefjah_216?utm_medium=copy_link" target="_blank"><i
+                                        class="fab fa-instagram"></i></a>
+                                <a href="http://www.linkedin.com/in/JahXBey" target="_blank"><i
+                                        class="fab fa-linkedin"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class=" color-white">
+                        <div class="team-box-new">
+                            <img src="assets/images/Levent-Taktas.jpeg" class="img-fluid">
+                            <h5 class="sub-heading">Levent Tektas </h5>
+                            <p>Graphic/NFT Designer</p>
+                            <p>
+                                <a href="https://instagram.com/levent_2x?utm_medium=copy_link" target="_blank"><i
+                                        class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/levent-tektas-292b07150" target="_blank"><i
+                                        class="fab fa-linkedin"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class=" color-white">
+                        <div class="team-box-new">
+                            <img src="assets/images/The-awakening-Agenda.png" class="img-fluid">
+                            <h5 class="sub-heading">The Awakening Agenda</h5>
+                            <p>BIO of charity’s accomplishments</p>
+                            <p>
+                                <a href="https://instagram.com/theawakeningagenda?utm_medium=copy_link"
+                                    target="_blank"><i class="fab fa-instagram"></i></a>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class=" color-white">
+                        <div class="team-box-new">
+                            <img src="assets/images/New-Era-Atlanta.jpeg" class="img-fluid">
+                            <h5 class="sub-heading">Jalil Omowale-Bey </h5>
+                            <p>President and Chairman of New Era Atlanta </p>
+                            <p>
+                                <a href="https://instagram.com/neweraatlanta?utm_medium=copy_link" target="_blank"><i
+                                        class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/jalil-omowale-bey-ba2512199" target="_blank"><i
+                                        class="fab fa-linkedin"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="newsletter-new page-section" id="contact">
+        <div class="container container-padding">
+            <div class="row">
+                <div class="col-md-6 m-auto">
+                    <div class="text-center">
+                        <p>Get Crypto analysis, news and updates</p>
+                        <h5>Sign up here so you don't miss a single newsletter</h5>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Your Email">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" onclick="show_alert()">
+
+                                    Subscribe
+
+
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <footer class="footer-box">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="copy-right ">
+                        <p class="text-left">© Copyright 2021 - All Rights reserved by <a
+                                href="http://questglt.com/">Quest Global Technologies</a></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="extra-links social-links">
+                        <ul class="mb-0">
+                            <li>
+                                <a href="https://t.me/ETHEREUMBUCKEYETOKEN" target="_blank"><span><i
+                                            class="fab fa-telegram-plane"></i></span></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/ethereumbuckeyetoken/?utm_medium=copy_link"
+                                    target="_blank"><span><i class="fab fa-instagram"></i></span></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/ethereumbuckeye?s=11" target="_blank"><span><i
+                                            class="fab fa-twitter"></i></span></a>
+                            </li>
+                            <li>
+                                <a href="https://chat.whatsapp.com/KkU1XAxLqCh0bKoh50OIyj" target="_blank"><span><i
+                                            class="fab fa-whatsapp"></i></span></a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <a href="#" class="scroll_top" title="Scroll to Top" style="display: block;"><i class="fas fa-arrow-up"></i></a>
+    <!-- JQuery -->
+    <script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
+    <!-- <script type="text/javascript" src="../assets/js/jquery-1.11.3.min.js"></script> -->
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+    <!-- dropdownhover effects JavaScript -->
+    <script type="text/javascript" src="../assets/js/bootstrap-dropdownhover.min.js"></script>
+    <!-- wow JavaScript -->
+    <script type="text/javascript" src="../assets/js/wow.min.js"></script>
+    <!-- slick JavaScript -->
+    <script type="text/javascript" src="../assets/js/slick.js"></script>
+    <script type="text/javascript" src="../assets/js/slick.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="text/javascript" src="../assets/js/custom.js"></script>
+    <script type="text/javascript">
+        $(".banner-slider").slick({
+            dots: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            infinite: true,
+            arrows: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: false,
+                        centerPadding: '40px',
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: false,
+                        centerMode: false,
+                        centerPadding: '40px',
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+
+
+        $(".partner-slider").slick({
+            dots: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            infinite: true,
+            arrows: false,
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        dots: false,
+                        centerMode: false,
+                        centerPadding: '40px',
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        dots: false,
+                        arrows: false,
+                        centerMode: false,
+                        centerPadding: '40px',
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+    </script>
+    <script>
+        $("#main-nav li .nav-close").click(function (event) {
+            $(".navbar-collapse").collapse('hide');
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(window).scroll(function () {
+            var scrollDistance = $(window).scrollTop();
+            $('.page-section').each(function (i) {
+                if ($(this).position().top <= scrollDistance + 100) {
+                    $('.navigation li.active').removeClass('active');
+                    $('.navigation li').eq(i).addClass('active');
+                }
+            });
+        }).scroll();
+    </script>
+    <script type="text/javascript">
+        var main_url = window.location.href.split("#")[0];
+        var hash_tag = window.location.href.split("#")[1];
+
+        if (hash_tag != '' && hash_tag != undefined) {
+            window.location.href = main_url;
+        }
+    </script>
+    <script>
+        function show_alert() {
+            if (!confirm("Thankyou!, You have been subscribed for our news letters. Stay Tuned!!!")) {
+                return false;
+            }
+            this.form.submit();
+        }
+    </script>
+    <script>
+
+        // Set the date we're counting down to
+        var countDownDate = new Date("1 Sept, 2021 12:00:00").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            // Get todays date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now an the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            //Zeros
+            var hours = (hours.toLocaleString(undefined, { minimumIntegerDigits: 2 }));
+
+            var minutes = (minutes.toLocaleString(undefined, { minimumIntegerDigits: 2 }));
+
+            var seconds = (seconds.toLocaleString(undefined, { minimumIntegerDigits: 2 }));
+
+
+
+            // Display the result in the element with id="demo"
+            document.getElementById("daysTicker").innerHTML = days;
+            document.getElementById("hoursTicker").innerHTML = hours;
+            document.getElementById("minsTicker").innerHTML = minutes;
+            document.getElementById("secsTicker").innerHTML = seconds;
+
+            // If the count down is finished, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "THE CAMPAIGN BEGINS";
+            }
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

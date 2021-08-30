@@ -1,0 +1,265 @@
+<%- include('header');%>
+
+
+
+  <div class="heading-row mb-2">
+    <div class="row align-item-center">
+      <div class="col-lg-6">
+        <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i
+              class="mdi mdi-account"></i></span> Dashboard </h3>
+      </div>
+      <div class="col-lg-6">
+        <div class="text-right">
+          <div>
+
+            <a href="#" class="btn btn-common bg-gradient-primary">Earn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 stretch-card grid-margin">
+      <div class="card bg-gradient-danger card-img-holder text-white">
+        <div class="card-body">
+          <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+          <h4 class="font-weight-normal mb-3">Total Worth
+          </h4>
+          <img src="assets/images/buy-coin.png" class="img-fluid icon-img">
+          <h2 class="mb-5">
+            <%=full_value%>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 stretch-card grid-margin">
+      <div class="card bg-gradient-danger card-img-holder text-white">
+        <div class="card-body">
+          <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+          <h4 class="font-weight-normal mb-3">POP
+          </h4>
+          <img src="assets/images/buy-coin.png" class="img-fluid icon-img">
+
+          <h2 class="mb-5">
+            <%=coinbalance%>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 stretch-card grid-margin">
+      <div class="card bg-gradient-danger card-img-holder text-white">
+        <div class="card-body">
+          <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+          <h4 class="font-weight-normal mb-3">Rewards Earned
+          </h4>
+          <img src="assets/images/buy-coin.png" class="img-fluid icon-img">
+          <h2 class="mb-5">
+            <%=coinbalance%>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 stretch-card grid-margin">
+      <div class="card bg-gradient-danger card-img-holder text-white">
+        <div class="card-body">
+          <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+          <h4 class="font-weight-normal mb-3">BNB
+          </h4>
+          <img src="assets/images/bnb-icon.png" class="img-fluid icon-img">
+          <h2 class="mb-5">
+            <%=bnbBalance%>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 stretch-card grid-margin">
+      <div class="card bg-gradient-danger card-img-holder text-white">
+        <div class="card-body">
+          <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+          <h4 class="font-weight-normal mb-3">ETH
+          </h4>
+          <img src="assets/images/eth-icon.png" class="img-fluid icon-img">
+          <h2 class="mb-5">
+            <%=ethBalance%>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-md-2 stretch-card grid-margin">
+      <div class="card bg-gradient-danger card-img-holder text-white">
+        <div class="card-body">
+          <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+          <h4 class="font-weight-normal mb-3"> Connect with
+          </h4>
+          <img src="assets/images/meta-icon.png" class="img-fluid icon-img" data-toggle="tooltip" data-placement="top"
+            title="Metamask">
+          <img src="assets/images/bnb-icon.png" class="img-fluid icon-img" data-toggle="tooltip" data-placement="top"
+            title="BSC Wallet">
+
+          <!-- <img src="assets/images/arkane-wallet.png" class="img-fluid icon-img" data-toggle="tooltip" data-placement="top" title="Arkane Wallet"> 
+          <img src="assets/images/trust-icon.png" class="img-fluid icon-img" data-toggle="tooltip" data-placement="top"
+            title="Trust Wallet">
+
+        </div>
+      </div>
+    </div> -->
+
+
+  </div>
+
+  <div class="row align-item-strech dash-inner-sec">
+
+    <div class="col-lg-6 col-md-12">
+      <div class="upper-block-coin dashboard-box shadow-box" style="min-height: auto;height: 100%;">
+        <div style="width: 100%;">
+          <!-- <div class="header-block clearfix">
+                          <span class="name-side green-heading">POP</span>
+                          <span class="logo-side"><img src="assets/images/buy-coin.png"></span>
+                        </div> -->
+          <div class="artw-align">
+            <div class="radio">
+              <label>
+                <input type="radio" id="o1" name="o1" value="pop" checked>
+                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                <div>
+                  <img src="assets/images/buy-coin.png">
+                  POP
+                </div>
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" id="o1" name="o1" value="eth">
+                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                <div>
+                  <img src="assets/images/eth-icon.png">
+                  ETH
+                </div>
+              </label>
+            </div>
+            <div class="radio disabled">
+              <label>
+                <input type="radio" id="o1" name="o1" value="bnb">
+                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                <div>
+                  <img src="assets/images/bnb-icon.png">
+                  BNB
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="create-wallet-block">
+            <div class="input-group input-dash copy-id-dash">
+              <input class="form-control text-left" type="text" id="address" name="address" placeholder=""
+                value="<%=wallet_details.wallet_address %>" readonly="">
+              <a href="javascript:void(0);" onclick="myFunction()"><i class="fa fa-copy"></i></a>
+              <!-- <a href=""><i class="fa fa-share"></i></a> -->
+            </div>
+          </div>
+          <!-- <div class="next-block">
+            <span class="left-side">POP - 0.0000000</span>
+            <span class="equal">≅</span>
+            <span class="right-side">
+              <select name="food_selector" data-placeholder="US$ - 0.0000000">
+                <option value="pancakes"><img src="assets/images/other/4.png">USD - 0.0000000</option>
+                <option value="pancakes"><img src="assets/images/other/4.png">BNB - 0.0000000</option>
+                <option value="pancakes"><img src="assets/images/other/4.png">ETH - 0.0000000</option>
+              </select>
+            </span>
+          </div> -->
+          <div class="text-center mlti-btn">
+            <button onclick="valueCheck()" class="btn btn-common light-green">Send</button>
+            <a href="/buy" class="btn btn-common light-green">Buy</a>
+            <a href="/receive-pop?walletid=<%-wallet_details._id %>" class="btn btn-common light-green">Receive</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <div class="card steps-card text-center for-all-pages">
+        <div class="card-content collapse show">
+          <div class="card-body">
+            <div class="font-small-3 token-balance clearfix">
+              <h6 class="hbg my-2 text-left">The POP guide</h6>
+              <ul class="text-left four-step-list">
+                <li>This is your universal wallet. Please do remember your private key. In case it is lost, we will not
+                  be able to retrieve it and your funds would be locked forever.</li>
+                <li>POP coins are internal currency to our NFT and ART Marketplace, where you can buy and sell NFTs,
+                  Digital Art, paintings, collectibles and take part in open gallery auctions, NFT airdrops and online
+                  exhibitions. Moreover, you can check the authenticity of any artwork, generate certificates for each
+                  artwork listed on our network. Check out our marketplace now!
+                  <!--<a href="http://theartw.com/">-->The
+                  POP</a>
+                </li>
+
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+  <%- include('footer');%>
+
+    <script type="text/javascript">
+      function myFunction() {
+        var copyText = document.getElementById("address");
+        if ($('#address').val() != "") {
+          copyText.select();
+          document.execCommand("copy");
+          alert("Wallet address is copied.");
+        }
+      }
+
+      function myFunction3() {
+        var copyText = document.getElementById("url_campaign");
+        if ($('#url_campaign').val() != "") {
+          copyText.select();
+          document.execCommand("copy");
+          alert("Text Message Copied.");
+        }
+      }
+    </script>
+
+
+    <script type="text/javascript">
+
+      function valueCheck() {
+        const rbs = document.querySelectorAll('input[name="o1"]');
+        let selectedValue;
+        for (const rb of rbs) {
+          if (rb.checked) {
+            selectedValue = rb.value;
+            break;
+          }
+        }
+        window.location.href = '/Send-pop?walletid=<%-wallet_details._id %>&type=' + selectedValue;
+      }
+
+      function wallet_logout(val) {
+        var wallet_id = val;
+        $.ajax({
+          type: "post",
+          url: "/Wallet-logout",
+          data: { 'wallet_id': wallet_id },
+          success: function (data) {
+            if (data == 'success') {
+              alert('Wallet logged out successfully.');
+              location.reload();
+            }
+            else {
+              alert('something is wrong please try again');
+              location.reload();
+            }
+
+          }
+        });
+      }
+    </script>

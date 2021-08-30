@@ -1,0 +1,375 @@
+<%- include('header');%>
+  <div class="heading-row mb-20">
+    <div class="row align-item-center">
+      <div class="page-header">
+        <h3 class="page-title">
+          <span class="page-title-icon bg-gradient-primary text-white mr-2">
+            <i class="mdi mdi-home"></i>
+          </span>
+          <% if(type=='pop' ){%>
+            Send POP
+            <% } else if(type=='bnb' ){%>
+              Send BNB
+              <% } else if(type=='eth' ){%>
+                Send ETH
+                <% } %>
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 ml-auto">
+    <h3 class="page-title text-left"
+      style="display: flex;align-items: center;justify-content: space-between;flex-wrap: wrap;">
+      <span class="mr-2"><small><b>1 POP</b> = <%=usdValue%> USD</small></span>
+      <span class="mr-2"><small><b>1 POP</b> = <%=etherValue%> ETH</small></span>
+      <span><small><b>1 POP </b> = <%=bnbValue%> BNB</span>
+    </h3></small>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-lg-6 col-md-12">
+      <% if(err_msg!=undefined){ %>
+        <span class="error_validate flash_msg">
+          <%= err_msg %>
+        </span>
+        <% }%>
+          <% if(success_msg!=undefined){ %>
+            <span class="succ_flash_msg" style="color: green;">
+              <%= success_msg %>
+            </span>
+            <% }%>
+              <div class="dashboard-box">
+                <form id="send-rowan-form" method="post" action="javascript:void(0);">
+                  <div class="create-wallet-block">
+                    <div class="row send-rwn-block">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Recipient Wallet Address</label>
+                          <input type="text" class="form-control" id="recipient" name="recipient"
+                            placeholder="Please paste recipient  address here" data-rule-required="true"
+                            data-msg-required="Please enter recipient wallet Address.">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Withdraw From</label>
+                          <input type="text" name="withdraw_from" id="withdraw_from"
+                            value="<%=walletdetails.wallet_address%>" class="form-control" readonly>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Amount</label>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="input-group send">
+                                <input type="text" name="amount" id="amount" class="form-control bg-white"
+                                  placeholder="0.00" onkeyup="dollarValue()" value="" data-rule-required="true"
+                                  data-msg-required="Enter Amount.">
+                                <div class="input-group-append">
+                                  <% if(type=='pop' ){%>
+                                    <span class="input-group-text bg-white"><img src="/assets/images/buy-coin.png"
+                                        class="img-fluid " style="height: 20px;">&nbsp; POP</span>
+                                    <% } else if(type=='bnb' ){%>
+                                      <span class="input-group-text bg-white"><img src="/assets/images/bnb-icon.png"
+                                          class="img-fluid " style="height: 20px;">&nbsp; BNB</span>
+                                      <% } else if(type=='eth' ){%>
+                                        <span class="input-group-text bg-white"><img src="/assets/images/eth-icon.png"
+                                            class="img-fluid " style="height: 20px;">&nbsp; ETH</span>
+                                        <% } %>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group m-0">
+                                <!-- <span class="equal">≅</span> -->
+                                <input id="equi" name="equi" type="text" class="form-control" value="<%=value%>" hidden>
+                                <input id="dollar_equi" name="dollar_equi" type="text" class="form-control"
+                                  placeholder="$ 0.00" readonly>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <% if(type=='pop' ){%>
+                          <p class="text-left"><i class="fa fa-info-circle"></i> <small><b>
+                                <%=coinbalance%>
+                              </b> <span>POP</span> Remaining. You
+                              need minimum balance 0.01 BNB to process this transaction.</small></p>
+                          <% } else if(type=='bnb' ){%>
+                            <p class="text-left"><i class="fa fa-info-circle"></i> <small><b>
+                                  <%=coinbalance%>
+                                </b> <span>BNB</span> Remaining. You
+                                need minimum balance 0.01 BNB to process this transaction.</small></p>
+                            <% } else if(type=='eth' ){%>
+                              <p class="text-left"><i class="fa fa-info-circle"></i> <small><b>
+                                    <%=coinbalance%>
+                                  </b> <span>ETH</span> Remaining. You
+                                  need minimum balance 0.05 ETH to process this transaction.</small></p>
+                              <% } %>
+                      </div>
+                    </div>
+
+                    <!-- <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Reciever would get 0000</label>
+                      <div class="input-group send">
+                        <input type="text" class="form-control bg-white" placeholder="$0.00">
+                        <div class="input-group-append">
+
+                          <% if(type=='artw' ){%>
+                            <span class="input-group-text bg-white"><img src="/assets/images/buy-coin.png"
+                                class="img-fluid " style="height: 20px;">&nbsp; ARTW</span>
+                            <% } else if(type=='bnb' ){%>
+                              <span class="input-group-text bg-white"><img src="/assets/images/bnb-icon.png"
+                                  class="img-fluid " style="height: 20px;">&nbsp; BNB</span>
+                              <% } else if(type=='eth' ){%>
+                                <span class="input-group-text bg-white"><img src="/assets/images/eth-icon.png"
+                                    class="img-fluid " style="height: 20px;">&nbsp; ETH</span>
+                                <% } %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Transaction fee</label>
+                      <div class="input-group send">
+                        <input type="text" class="form-control bg-white" placeholder="$0.00">
+                        <div class="input-group-append">
+                          <span class="input-group-text bg-white"><img src="assets/images/buy-coin.png"
+                              class="img-fluid " style="height: 20px;">&nbsp; ATRW</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+
+
+                    <div class="col-md-12">
+                      <div class="text-center mlti-btn">
+                        <a class="btn btn-common light-green" href="/dashboard">Cancel</a>
+                        <button class="btn btn-common light-green" type="submit">Send</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12">
+      <div class="card steps-card text-center for-all-pages">
+        <div class="card-content collapse show">
+          <div class="card-body">
+            <div class="font-small-3 token-balance clearfix">
+              <h6 class="hbg my-2 text-left">Tips</h6>
+              <ol class="text-left four-step-list">
+                <li>Please check the network and wallet address carefully
+                  your BNB wallet should be at least 0.5 to carry out transaction
+                  Once you click on submit button, you will be asked for private key
+                  After entering correct private key, you will get an OTP on registered email
+                  Once it is submitted, transaction cannot be reversed.</li>
+              </ol>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade modal-key" id="keyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form action="/Submit-send-artw" method="POST" name="form">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="green-heading text-center">Enter Your Private Key</h3>
+                <p class="text-upper text-center">Please enter your private key stored with you.</p>
+                <div class="form-group">
+                  <input type="text" name="passphrase" class="form-control">
+                </div>
+                <input type="hidden" name="sender_address" id="sender_address">
+                <input type="hidden" name="type" id="type" value="<%=type%>">
+
+                <input type="hidden" name="reciver_address" id="reciver_address">
+
+                <input type="hidden" name="amount_send" id="amount_send">
+                <input type="hidden" name="get_wallet_id" id="amount_send" value="<%=walletid%>">
+              </div>
+              <div class="text-center mt-4">
+                <button type="submit" class="btn btn-common light-green">Submit</button>
+              </div>
+            </div>
+          </div>
+      </div>
+      </form>
+    </div>
+  </div>
+  </div>
+
+
+
+  <%- include('footer');%>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+
+    <script type="text/javascript">
+
+      function dollarValue() {
+        var amount = $('#amount').val();
+        var equi = $('#equi').val();
+        var final = amount * equi;
+        $('#dollar_equi').val('$ ' + final);
+      }
+
+
+
+      $('#send-rowan-form').validate({
+
+        onfocusout: function (element) {
+          //alert('Inside onfocus');
+          this.element(element);
+        },
+        errorClass: 'error_validate',
+        errorElement: 'span',
+        highlight: function (element, errorClass) {
+          // alert('Inside highlight');
+          $(element).removeClass(errorClass);
+        },
+        submitHandler: function (form) {
+          //alert('Inside submit handler.');
+          var address = $('#recipient').val();
+          var amount = $('#amount').val();
+          console.log('address,amount', address, amount)
+          if (amount == "") {
+            alert('Enter Amount.');
+            return false;
+            // $("#keyModal").modal("toggle");
+          }
+          if (address != "") {
+            //alert('Inside if', address, amount);
+
+            if (!/^(0x)?[0-9a-f]{40}$/i.test(address)) {
+              alert('Please enter valid wallet address.');
+              // $('#eth_address_err').html('Please enter valid wallet address');
+              $('#recipient').val("");
+              return false;
+            }
+            else (/^(0x)?[0-9a-f]{40}$/.test(address) || /^(0x)?[0-9A-F]{40}$/.test(address))
+            {
+              //alert('Inside else');
+
+              $("#keyModal").modal("show");
+              var sender_add = $('#withdraw_from').val();
+              var recier_add = $('#recipient').val();
+              var send_amount = $('#amount').val();
+              var correct_pass = $('#passphrase').val();
+              var wallet_id = $('#wallet_id').val();
+              console.log(sender_add)
+              $('#enter_passphrase').val("");
+              // alert(sender_add, recier_add, send_amount, correct_pass, wallet_id)
+              $('#sender_address').val(sender_add);
+              $('#reciver_address').val(recier_add);
+              $('#amount_send').val(send_amount);
+              $('#user_cr_pass').val(correct_pass);
+              $('#get_wallet_id').val(wallet_id);
+              toggleFunction();
+            }
+          }
+
+          else {
+            alert('Enter amount to send.');
+            // $("#keyModal").modal("toggle");
+          }
+
+        }
+      });
+
+      function toggleFunction() {
+        var address = $('#recipient').val();
+        var amount = $('#amount').val();
+        if (address && amount) {
+          //alert('address,amount', address, amount)
+          $("#keyModal").modal("toggle");
+        }
+      }
+    </script>
+
+    <script>
+
+
+      $("#recipient").blur(function () {
+        var reciver_address = $('#recipient').val();
+        var sender_address = $('#withdraw_from').val();
+        // alert(reciver_address.trim());
+        // alert(sender_address.trim());
+
+        if (reciver_address.trim() == sender_address.trim()) {
+          $('.show_err').html("Recipient and Sender address both couldn't be same.");
+          // $('.show_err').html('hghjjhjh'); 
+          setTimeout(function () {
+            $('.show_err').html(''); $('#recipient').val('');
+          }, 4000);
+
+        }
+      });
+
+    </script>
+
+    <script type="text/javascript">
+      $('#key-form').validate({
+        onfocusout: function (element) {
+          this.element(element);
+        },
+        errorClass: 'error_validate',
+        errorElement: 'span',
+        highlight: function (element, errorClass) {
+          $(element).removeClass(errorClass);
+        },
+        submitHandler: function (form) {
+          $('#sub_btn1').attr('disabled', true);
+          form.submit();
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      $('#cancel_btn').click(function () {
+        location.reload();
+      })
+    </script>
+    <script type="text/javascript">
+      function isNumdeciKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31
+          && (charCode < 48 || charCode > 57))
+          return false;
+        return true;
+      }
+
+      function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+
+        // alert(charCode);
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+          return false;
+        return true;
+      }
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var flash_msg = $('.flash_msg').html();
+        if (flash_msg != "" && flash_msg != undefined) {
+          setTimeout(function () { $('.flash_msg').html(''); }, 5000);
+        }
+      });
+    </script>

@@ -1,0 +1,86 @@
+<%- include('header') -%>
+  <div class="heading-row mb-20">
+    <div class="row align-item-center">
+       <div class="col-lg-6">
+          <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i class="mdi mdi-thumbs-up-down"></i></span> Feedback List </h3>
+       </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th width="5%">S. No.</th>
+                <th width="10%">Full Name</th>
+                <th width="15%">Email</th>
+                <th width="15%">Rating</th>
+                <th width="20%">Message</th>
+                <th width="15%">Created Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Nawaj Shekh</td>
+                <td>nawaj@gmail.con</td>
+                <td>
+                  <span class="text-warning"><i class="mdi mdi-star"></i></span>
+                  <span class="text-warning"><i class="mdi mdi-star"></i></span>
+                  <span class="text-warning"><i class="mdi mdi-star"></i></span>
+                  <span class="text-warning"><i class="mdi mdi-star"></i></span>
+                  <span><i class="mdi mdi-star"></i></span>
+                </td>
+                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
+                <td>24 March, 2019</td>
+                
+              </tr>
+              <tr>
+                <td>2</td>
+                
+               <td>Nawaj Shekh</td>
+                <td>nawaj@gmail.con</td>
+                <td>
+                  <span class="text-warning"><i class="mdi mdi-star"></i></span>
+                  <span class="text-warning"><i class="mdi mdi-star"></i></span>
+                  <span><i class="mdi mdi-star"></i></span>
+                  <span><i class="mdi mdi-star"></i></span>
+                  <span><i class="mdi mdi-star"></i></span>
+                </td>
+                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
+                <td>24 March, 2019</td>
+                
+              </tr>
+              <tr>
+                <td>3</td>
+                
+                <td>Nawaj Shekh</td>
+                <td>nawaj@gmail.con</td>
+                <td>
+                  <span class="text-warning"><i class="mdi mdi-star"></i></span>
+                  <span class="text-warning"><i class="mdi mdi-star"></i></span>
+                  <span class="text-warning"><i class="mdi mdi-star"></i></span>
+                  <span><i class="mdi mdi-star"></i></span>
+                  <span><i class="mdi mdi-star"></i></span>
+                </td>
+                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
+                <td>24 March, 2019</td>
+                
+              </tr>
+
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('footer') -%>
+
+  <script>
+$(document).ready( function () {
+  $('.table').DataTable();
+} );
+</script>

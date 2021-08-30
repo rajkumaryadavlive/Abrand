@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style type="text/css">
+  .navbar.default-layout {
+    background-color: #fff !important;
+}
+  .navbar.default-layout .navbar-brand-wrapper .navbar-brand img {
+    width: 80px !important;
+    max-width: 100%;
+    height: 75px !important;
+    margin: auto;
+    vertical-align: middle;
+}</style>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Rowan Energy</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="admin_assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="admin_assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="admin_assets/vendors/css/vendor.bundle.addons.css">
+  <link rel="stylesheet" href="admin_assets/vendors/iconfonts/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="admin_assets/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="admin_assets/css/jquery.datetimepicker.css">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="admin_assets/css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="/assets/images/favicon.png" />
+   <script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
+
+   <style>
+     
+.btnic img {
+    height: 36px;
+}
+     .navbar.default-layout .navbar-brand-wrapper{
+      background-color: transparent;
+     }
+     .navbar.default-layout .navbar-brand-wrapper .navbar-brand img {
+    width: auto !important;
+    height: 55px !important;
+}
+.navbar.default-layout {
+    background-color: #fff;
+    background: none;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+.navbar.default-layout .navbar-menu-wrapper .navbar-nav .nav-item .nav-link .profile-text {
+    color: #000;
+}
+.navbar.default-layout .navbar-menu-wrapper .navbar-nav .nav-item .nav-link .rounded-circle {
+    border: 1px solid #000;
+}
+.content-header{
+  padding: 20px;
+}
+   </style>
+</head>
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+<nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+  <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+        <a class="navbar-brand brand-logo" href="/admin-dashboard">
+          <img src="/assets/images/logo.png" alt="logo" />
+        </a>
+       <!--  <a class="navbar-brand brand-logo-mini" href="index.html">
+          <img src="admin_assets//images/logo-mini.svg" alt="logo" />
+        </a> -->
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center">
+
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown d-none d-xl-inline-block">
+            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <span class="profile-text">Hello, {{Name}}</span>
+               {{#if profile_image}}
+                 
+                   <img src="upload_admin_profile/{{profile_image}}"  class="img-xs rounded-circle" alt="Profile image">
+                  {{else}}
+                   <img class="img-xs rounded-circle" src="admin_assets/images/faces-clipart/pic-1.png" alt="Profile image">
+                   {{/if}}
+
+
+             
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <a class="dropdown-item p-0">
+              <!--   <div class="d-flex border-bottom">
+                  <div class="py-3 px-4 d-flex align-items-center justify-content-center">
+                    <i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
+                  </div>
+                  <div class="py-3 px-4 d-flex align-items-center justify-content-center border-left border-right">
+                    <i class="mdi mdi-account-outline mr-0 text-gray"></i>
+                  </div>
+                  <div class="py-3 px-4 d-flex align-items-center justify-content-center">
+                    <i class="mdi mdi-alarm-check mr-0 text-gray"></i>
+                  </div>
+                </div> -->
+              </a>
+              <a class="dropdown-item mt-2" href="/manage-accounts">
+                Manage Accounts
+              </a>
+              <a class="dropdown-item" href="/change-password-admin">
+                Change Password
+              </a>
+           <!--    <a class="dropdown-item">
+                Check Inbox
+              </a> -->
+              <a class="dropdown-item" href="/logout1">
+                Sign Out
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+<div class="container-fluid page-body-wrapper">
+

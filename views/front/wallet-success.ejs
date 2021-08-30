@@ -1,0 +1,34 @@
+<%- include('header');%>
+
+  <section class="dash-inner-sec">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="dashboard-box">
+          <div class="create-wallet-block">
+
+            <h3 class="main-heading">Yes Let's get set up.</h3>
+
+            <p class="head-commn-text">This will create a new wallet.</p>
+
+            <h4 class="green-heading">Congratulations! Your wallet is created. <br> Here is your wallet address.</h4>
+
+            <div class="input-group input-dash copy-id-dash">
+              <input class="form-control" type="text" placeholder="" value="<%= wallet_address %>">
+            </div>
+
+            <div class="clearfix note-line">
+              <span class=""><b><i class="fa fa-info-circle"></i> Make sure you keep the wallet address safe.</b></span>
+            </div>
+
+            <div class="text-center">
+              <a href="dashboard" class="btn btn-common light-green">Continue</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <%- include('footer');%>

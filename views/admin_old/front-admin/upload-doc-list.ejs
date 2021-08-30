@@ -1,0 +1,95 @@
+<%- include('header') -%>
+
+  <div class="heading-row mb-20">
+    <div class="row align-item-center">
+       <div class="col-lg-6">
+          <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i class="mdi mdi-file-document"></i></span>Document List </h3>
+       </div>
+         <div class="col-lg-6">
+         <div class="text-right">
+           <div>
+             <a href="/add-new-document" class="btn btn-common bg-gradient-primary">Add New Document</a>
+           </div>
+         </div>
+       </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th width="20%">S. No.</th>
+                <th width="30%">Document Name</th>
+                <th width="40%">Document Type</th>
+                <th width="10%">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                
+                <td>One Pager</td>
+                <td>onepager%20_updated.pdf</td>
+                 <td>
+                  <div class="edit-icons">
+                   
+                    <a href="/edit-document" data-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-pencil"></i></a>
+                    <a href="" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-close"></i></a>
+                  </div>
+                </td>
+              </tr>
+
+                <tr>
+                <td>2</td>
+                 <td>Whitepaper</td>
+                <td>RowanEnergy-Concept-document.pdf/</td>
+                 <td>
+                  <div class="edit-icons">
+                   
+                    <a href="/edit-document" data-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-pencil"></i></a>
+                    <a href="" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-close"></i></a>
+                  </div>
+                </td>
+              </tr>
+                <tr>
+                <td>3</td>
+                 <td>Pitch deck</td>
+                <td>pitchdeck.pdf</td>
+                 <td>
+                  <div class="edit-icons">
+                   
+                    <a href="edit-document.ejs" data-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-pencil"></i></a>
+                    <a href="" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-close"></i></a>
+                  </div>
+                </td>
+              </tr>
+               <tr>
+                <td>4</td>
+                 <td>Concept in Brief</td>
+                <td>RowanEnergy-Concept-summary.pdf</td>
+                 <td>
+                  <div class="edit-icons">
+                   
+                    <a href="edit-document.ejs" data-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-pencil"></i></a>
+                    <a href="" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-close"></i></a>
+                  </div>
+                </td>
+              </tr>
+               
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('footer') -%>
+
+  <script>
+$(document).ready( function () {
+  $('.table').DataTable();
+} );
+</script>

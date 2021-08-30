@@ -1,0 +1,93 @@
+<%- include('header') %>
+
+<div class="page-header">
+    <h3 class="page-title">
+      <span class="page-title-icon bg-gradient-primary text-white mr-2">
+        <i class="mdi mdi-home"></i>
+      </span> Receive </h3>
+  </div>
+
+
+<section class="dash-inner-sec">
+   <div class="row">
+             <div class="col-lg-6 col-md-12">
+                 <div class="dashboard-box  wow slideInUp">
+                     <div class="create-wallet-block">
+
+                            <h3 class="main-heading">Only receive $EBT to this address sending any other digital asset, will result in permanent loss.</h3> 
+                          
+                           
+
+                          <!--   <h4 class="green-heading">Only receive TOKEN to this address sending any other digital asset, will result in permanent loss.</h4> -->
+<!--                            
+                          <div class="input-group input-dash copy-id-dash">
+                             <input class="form-control" type="text" placeholder="" value="2798ehgdgdsffsfsfighj9832q787ysuueh">
+                             <a href=""><i class="fa fa-copy"></i></a>
+                            
+                        </div> -->
+
+                        <div class="input-group input-dash copy-id-dash">
+                            <input class="form-control" type="text" id="address" name="address" value="<%=wallet_details.wallet_address%>" placeholder="" readonly>
+                             <a onclick="myFunction()" href="javascript:void(0);"><i class="fa fa-copy"></i></a>
+                        </div>
+
+                        <div class="clearfix note-line">
+                            <span class=""><b><i class="fa fa-info-circle"></i> You can copy/download this address and share it with your friends to receive the funds</b></span>
+                          </div>
+                      
+                          <div class="col-md-12">
+                            <div class="text-center mlti-btn">
+                               <a href="javascript:void(0);" download="wallet_address.txt" id="download" class="btn btn-common light-green">Download</a>
+                         </div>
+                        </div>
+                          <!-- <div class="text-center mlti-btn">
+                              <button class="btn btn-common light-green">Download</button>
+                          </div> -->
+                        </div>
+                 </div>
+             </div>
+              <div class="col-lg-6 col-md-12">
+        <div class="card steps-card text-center for-all-pages">
+                        <div class="card-content collapse show">
+                            <div class="card-body">
+                                <div class="font-small-3 token-balance clearfix">
+                                     <h6 class="hbg my-2 text-left">3 step guide</h6>
+                                     <ol class="text-left four-step-list">
+                                        <li>Here you can copy your wallet address and send it to your friends.</li>
+                                        <li>You can also download and save address in document.</li>
+                                        <li>You can share this address with your friends and receive funds.</li>
+                                        <!-- <li>Upon transaction confirmation, please fill in your transaction details (Bitcoin Wallet address, Ethereum Wallet address and transaction ID) in the form. We need Ethereum wallet address so that we can transfer TOKEN coins to you.</li>
+                                        <li>Our team will verify the transaction and will send your TOKEN tokens within 48 hours which will be reflected in your wallet.</li> -->
+                                    </ol>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+</section>
+
+
+<%- include('footer') %>
+
+<script type="text/javascript">
+    (function () {
+    var textFile = null,
+      makeTextFile = function (text) {
+        var data = new Blob([text], {type: 'text/plain'});
+        if (textFile !== null) {
+          window.URL.revokeObjectURL(textFile);
+        }
+        textFile = window.URL.createObjectURL(data);
+        return textFile;
+      };
+      var create = document.getElementById('download'),
+        textbox = document.getElementById('address');
+      create.addEventListener('click', function () {
+        var link = document.getElementById('download');
+        link.href = makeTextFile(textbox.value);
+      }, false);
+    })();
+  </script>

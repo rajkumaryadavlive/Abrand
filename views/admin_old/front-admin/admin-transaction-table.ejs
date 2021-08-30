@@ -1,0 +1,93 @@
+<%- include('header') -%>
+
+<style type="text/css">
+  td {
+    max-width: 150px !important;
+    overflow: hidden !important
+  }
+
+  #example_wrapper .dataTables_filter {
+    display: none !important;
+  }
+</style>
+<div class="heading-row mb-20">
+  <div class="row align-item-center">
+     <div class="col-lg-6">
+      <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i class="mdi mdi-account"></i></span> My Transactions </h3>
+     </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-lg-12 grid-margin stretch-card">
+
+    <div class="card">
+      <div class="card-header">
+      </div>
+      <div class="card-body table-responsive">
+        <%if(err_msg !="" ){%>
+          <span style="color: red; ">
+            <%= err_msg%>
+          </span>
+          <%}%>
+            <%if(success_msg !="" ){%>
+              <span style="color: #099441; ">
+                <%=success_msg%>
+              </span>
+              <%}%>
+              <table class="table"> 
+               <thead>
+                <tr>
+                  <th width="5%" class="border-top-0">S.No</th>
+                  <th width="8%" class="border-top-0">Date</th>
+                  <th width="20%" class="border-top-0">Transaction ID</th>
+                  <th width="15%" class="border-top-0">Sender Address</th>
+                  <th width="15%" class="border-top-0">Receiver Address</th>
+                  <th width="5%" class="border-top-0">Status</th>
+                  <th width="8%" class="border-top-0">Total $EBT</th>
+                  <th width="10%" class="border-top-0">Created At</th> 
+                   <!-- <th width="7%" class="border-top-0">Action</th>     -->
+                  </tr>
+            </thead>
+             <tbody>
+              <% var i=1; if(token_details.length> 0){
+                token_details.forEach(function(details){
+                %>
+                     <tr>
+                      <td><%- i %></td>
+                      <td><%- details.created_at%></td>
+                      <!-- <td>John Doe</td> -->
+                      <td><a href="https://ropsten.etherscan.io/tx/<%-details.hash%>" target="_blank"><%- details.hash%></a></td>
+                      <td><a href="https://ropsten.etherscan.io/address/<%- details.sender_wallet_address%>" target="_blank"><%- details.sender_wallet_address%></a></td>
+                      <td><a href="https://ropsten.etherscan.io/address/<%- details.receiver_wallet_address%>" target="_blank"><%- details.receiver_wallet_address%></a></td>
+                      <!-- <td><%- details.payment_method%></td> -->
+                      <td><%- details.payment_status%></td>
+                      <td><%- details.amount%></td>
+                      <td><%- details.created_at%></td>
+                      <!-- <td><%- details.payment_status%>
+                        <%if(details.payment_status=="pending" ){%>
+                          <a href="/deactiveUser?id=<%=details.payment_status%>">pending</a>
+                          <%}else{%>
+                            <a href="/activeUser?id=<%=details.payment_status%>">Paid</a>
+                            <%}%>
+                          </td> -->
+                          </tr>
+                          <% i++; }) } %>
+
+
+                                                            
+                            </tbody>
+          </table> 
+
+          
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('footer') -%>
+  <script>
+$(document).ready( function () {
+  $('.table').DataTable();
+} );
+</script>

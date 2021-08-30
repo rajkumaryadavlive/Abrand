@@ -1,0 +1,705 @@
+<%- include('header') %>
+
+    <style>
+        .error_validate_btc {
+            color: red;
+        }
+
+        .error_validate_eth {
+            color: red;
+        }
+    </style>
+
+    <div class="page-header">
+        <h3 class="page-title">
+            <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                <i class="mdi mdi-home"></i>
+            </span> Buy POP Token
+        </h3>
+        <%if(error !='' ) {%>
+            <span class="success-msg" style="color: red; ">
+                <%= error%><span>
+                        <% }if(success !='' ){ %>
+                            <span class="success-msg" style="color: #099441; " id="btc_success">
+                                <%=success%>
+                            </span>
+                            <% } %>
+    </div>
+    <section class="dash-inner-sec token for-token-page">
+        <div class="card-content for-equal-only">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+
+                    <div class=" buy-upper card pull-up buy-token mb-3">
+                        <div class="card-content collapse show">
+                            <div class="card-body bitcoin-box-new">
+                                <div class="bitcoin-flex-box">
+                                    <img id="bitcoin_img" src="assets/images/other/Bitcoin128.png" alt="Bitcoin Icon">
+                                    <img id="ethereum_img" src="assets/images/other/Ethereum128.png" alt="Ethereum Icon"
+                                        style="display: none;">
+                                    <img id="binance_img" src="assets/images/bnb-icon.png" alt="Binance Icon"
+                                        style="display: none;">
+                                    <!-- <img id="binance_img" src="assets/images/cordano.png" alt="Cordano Icon" style="display: none;"> -->
+                                    <img id="doge_img" src="assets/images/dogecoin.png" alt="Dogecoin Icon"
+                                        style="display: none;">
+                                    <img id="xlm_img" src="assets/images/xlm.png" alt="XLM Icon" style="display: none;">
+                                    <!-- <img id="binance_img" src="assets/images/litecoin.png" alt="Litecoin Icon" style="display: none;"> -->
+                                    <img id="polka_img" src="assets/images/polkadot.png" alt="PolkaDot Icon"
+                                        style="display: none;">
+                                    <!-- <img id="binance_img" src="assets/images/ripple.png" alt="Ripple Icon" style="display: none;"> -->
+                                    <img id="tron_img" src="assets/images/trc.png" alt="Tron Icon"
+                                        style="display: none;">
+                                    <select onchange="select(this.value)" id="select" class="form-control"
+                                        style="box-shadow: none;outline: none;border: 1px solid #ddd !important;">
+                                        <option>Bitcoin</option>
+                                        <option>Ethereum</option>
+                                        <option>Binance</option>
+                                        <option>Dogecoin</option>
+                                        <option>Stellar</option>
+                                        <option>PolkaDot</option>
+                                        <option>Tron</option>
+                                    </select>
+
+                                    <div class="create-wallet-block">
+                                        <div class="input-group input-dash copy-id-dash">
+                                            <input type="text" id="copy_add" class="form-control" readonly=""
+                                                id="copy_add" placeholder="BTC wallet address"
+                                                value="13rURxeAPV8JjnXNJJefYrj9mraRYJL3bh">
+                                            <input type="text" id="copy_add2" class="form-control" readonly=""
+                                                id="copy_add2" placeholder="ETH wallet address"
+                                                value="0xdd0cc17fe1e3ec7bbb00ffe8c862830360f021e1"
+                                                style="display: none;">
+                                            <input type="text" id="copy_add3" class="form-control" readonly=""
+                                                id="copy_add3" placeholder="BNB wallet address"
+                                                value="0xdd0cc17fe1e3ec7bbb00ffe8c862830360f021e1"
+                                                style="display: none;">
+                                            <input type="text" id="copy_add4" class="form-control" readonly=""
+                                                id="copy_add4" placeholder="Dogecoin wallet address"
+                                                value="DCng4iYzWFSc8JaGEXjQLMd6vRegTuNXBn" style="display: none;">
+                                            <input type="text" id="copy_add5" class="form-control" readonly=""
+                                                id="copy_add5" placeholder="XLM wallet address"
+                                                value="GAHK7EEG2WWHVKDNT4CEQFZGKF2LGDSW2IVM4S5DP42RBW3K6BTODB4A"
+                                                style="display: none;">
+                                            <input type="text" id="copy_add6" class="form-control" readonly=""
+                                                id="copy_add6" placeholder="PolkaDot wallet address"
+                                                value="16aYWeUFJMFPDDQCY9HWZWxhPtNVqTU3cpf6HADYQbBwcBYX"
+                                                style="display: none;">
+                                            <input type="text" id="copy_add7" class="form-control" readonly=""
+                                                id="copy_add7" placeholder="Tron wallet address"
+                                                value="TLESCBHU93dcFE3sZPivmeW368rsSMnwt6" style="display: none;">
+                                            <a onclick="myFunction()" href="javascript:void(0);" id="copyBTC"><i
+                                                    class="fa fa-copy"></i></a>
+                                            <a onclick="myFunction2()" href="javascript:void(0);" id="copyETH"
+                                                style="display: none;"><i class="fa fa-copy"></i></a>
+                                            <a onclick="myFunction3()" href="javascript:void(0);" id="copyBNB"
+                                                style="display: none;"><i class="fa fa-copy"></i></a>
+                                            <a onclick="myFunction4()" href="javascript:void(0);" id="copyDoge"
+                                                style="display: none;"><i class="fa fa-copy"></i></a>
+                                            <a onclick="myFunction5()" href="javascript:void(0);" id="copyXLM"
+                                                style="display: none;"><i class="fa fa-copy"></i></a>
+                                            <a onclick="myFunction6()" href="javascript:void(0);" id="copyPolka"
+                                                style="display: none;"><i class="fa fa-copy"></i></a>
+                                            <a onclick="myFunction7()" href="javascript:void(0);" id="copyTron"
+                                                style="display: none;"><i class="fa fa-copy"></i></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                                <!--<div class="center-box">
+                                        <h6>Bit Coin</h6>
+                                         <div class="form-group m-0">
+                                            <select class="form-control"
+                                                style="box-shadow: none;outline: none;border: 1px solid #ddd !important;">
+                                                <option>Bitcoin</option>
+                                                <option>Etherium</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div>
+                                        <button type="submit" onclick="myFunction()"
+                                            class="btn btn-common light-green">Copy</button>
+                                    </div>-->
+
+                                <div class="row d-flex align-items-center"
+                                    action="https://pixinvent.com/demo/crypto-ico-admin/html/ltr/vertical-menu/buy-ico.html">
+                                    <div class="col-lg-2 col-md-3 col-12">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card steps-card text-center">
+                        <div class="card-content collapse show">
+                            <div class="card-body">
+                                <div class="font-small-3 token-balance clearfix">
+                                    <h6 class="hbg my-2 text-left">5 step guide</h6>
+                                    <ol class="text-left four-step-list" id="btc_list">
+                                        <li>Calculate how much tokens you want to buy.</li>
+                                        <li>Copy/Scan the displayed address</li>
+                                        <li>Send your BTC to that address. You may send it right from your exchange.
+                                        </li>
+                                        <li>Upon transaction confirmation, please fill in your transaction details
+                                            (Bitcoin Wallet address and transaction ID) in the
+                                            form. We need BNB wallet address so that we can transfer POP tokens to
+                                            you.</li>
+                                        <li>Our team will verify the transaction and will send your POP tokens within
+                                            48 hours which will be reflected in your wallet.</li>
+                                    </ol>
+
+                                    <ol class="text-left four-step-list" id="eth_list" style="display: none;">
+                                        <li>Calculate how much tokens you want to buy.</li>
+                                        <li>Copy/Scan the displayed address</li>
+                                        <li>Send your ETH to that address. You may send it right from your exchange.
+                                        </li>
+                                        <li>Upon transaction confirmation, please fill in your transaction details
+                                            (Ethereum Wallet address and transaction ID) in the
+                                            form. We need BNB wallet address so that we can transfer POP tokens to
+                                            you.</li>
+                                        <li>Our team will verify the transaction and will send your POP tokens within
+                                            48 hours which will be reflected in your wallet.</li>
+                                    </ol>
+
+                                    <ol class="text-left four-step-list" id="bnb_list" style="display: none;">
+                                        <li>Calculate how much tokens you want to buy.</li>
+                                        <li>Copy/Scan the displayed address</li>
+                                        <li>Send your BNB to that address. You may send it right from your exchange.
+                                        </li>
+                                        <li>Upon transaction confirmation, please fill in your transaction details
+                                            (Ethereum Wallet address and transaction ID) in the
+                                            form. We need BNB wallet address so that we can transfer POP tokens to
+                                            you.</li>
+                                        <li>Our team will verify the transaction and will send your POP tokens within
+                                            48 hours which will be reflected in your wallet.</li>
+                                    </ol>
+
+                                    <ol class="text-left four-step-list" id="doge_list" style="display: none;">
+                                        <li>Calculate how much tokens you want to buy.</li>
+                                        <li>Copy/Scan the displayed address</li>
+                                        <li>Send your Doge to that address. You may send it right from your exchange.
+                                        </li>
+                                        <li>Upon transaction confirmation, please fill in your transaction details
+                                            (Dogecoin Wallet address and transaction ID) in the
+                                            form. We need BNB wallet address so that we can transfer POP tokens to
+                                            you.</li>
+                                        <li>Our team will verify the transaction and will send your POP tokens within
+                                            48 hours which will be reflected in your wallet.</li>
+                                    </ol>
+
+                                    <ol class="text-left four-step-list" id="xlm_list" style="display: none;">
+                                        <li>Calculate how much tokens you want to buy.</li>
+                                        <li>Copy/Scan the displayed address</li>
+                                        <li>Send your XLM to that address. You may send it right from your exchange.
+                                        </li>
+                                        <li>Upon transaction confirmation, please fill in your transaction details
+                                            (XLM Wallet address and transaction ID) in the
+                                            form. We need BNB wallet address so that we can transfer POP tokens to
+                                            you.</li>
+                                        <li>Our team will verify the transaction and will send your POP tokens within
+                                            48 hours which will be reflected in your wallet.</li>
+                                    </ol>
+
+                                    <ol class="text-left four-step-list" id="polka_list" style="display: none;">
+                                        <li>Calculate how much tokens you want to buy.</li>
+                                        <li>Copy/Scan the displayed address</li>
+                                        <li>Send your Polka to that address. You may send it right from your exchange.
+                                        </li>
+                                        <li>Upon transaction confirmation, please fill in your transaction details
+                                            (PolkaDot Wallet address and transaction ID) in the
+                                            form. We need BNB wallet address so that we can transfer POP tokens to
+                                            you.</li>
+                                        <li>Our team will verify the transaction and will send your POP tokens within
+                                            48 hours which will be reflected in your wallet.</li>
+                                    </ol>
+
+                                    <ol class="text-left four-step-list" id="tron_list" style="display: none;">
+                                        <li>Calculate how much tokens you want to buy.</li>
+                                        <li>Copy/Scan the displayed address</li>
+                                        <li>Send your Tron to that address. You may send it right from your exchange.
+                                        </li>
+                                        <li>Upon transaction confirmation, please fill in your transaction details
+                                            (Tron Wallet address and transaction ID) in the
+                                            form. We need BNB wallet address so that we can transfer POP tokens to
+                                            you.</li>
+                                        <li>Our team will verify the transaction and will send your POP tokens within
+                                            48 hours which will be reflected in your wallet.</li>
+                                    </ol>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-6 col-md-12 col-12">
+                    <div class="dashboard-box shadow-box side-box-by-now" id="divBTC">
+                        <form action="/BTC" method="POST" id="buy_bitcoin">
+                            <input type="hidden" value="Bitcoin" name="currency" id="currency">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-12 col-lg-6 col-md-12">
+                                        <div class="form-group row m-0 align-items-center">
+                                            <label class="col-2 label-control p-0 m-0" for="projectinput1">BUY<span
+                                                    style="color:red;">*</span></label>
+                                            <fieldset class="col-10 p-0">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" data-rule-number="true"
+                                                        onkeyup="multiply()" name="artw" id="artw" data-rule-min="1"
+                                                        data-msg-min="You have to buy minimum 1 POP."
+                                                        data-rule-required="true"
+                                                        data-msg-required="Please enter value in digit."
+                                                        aria-describedby="basic-addon2">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text" id="basic-addon2">POP</span>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <span for="artw" class="error_validate_btc"></span>
+                                    </div>
+                                    <div class="col-12 col-lg-1 col-md-12">
+                                        <fieldset>
+                                            <p class="mb-0 text-center font-medium-5">=</p>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-12 col-lg-5 col-md-12">
+                                        <div class="form-group row m-0">
+                                            <fieldset class="col-12 p-0">
+                                                <div class="input-group">
+                                                    <input class="form-control" id="btcv"
+                                                        aria-describedby="basic-addon4" readonly="" name="btc"
+                                                        type="text">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text" id="basic-addon4">BTC</span>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" value="<%=btc%>" name="rate_per_artw" id="rate_per_artw">
+                            <input type="hidden" value="<%=btc%>" name="rate_btc" id="rate_btc">
+                            <input type="hidden" value="<%=eth%>" name="rate_eth" id="rate_eth">
+                            <input type="hidden" value="<%=bnb%>" name="rate_bnb" id="rate_bnb">
+                            <input type="hidden" value="<%=doge%>" name="rate_doge" id="rate_doge">
+                            <input type="hidden" value="<%=xlm%>" name="rate_xlm" id="rate_xlm">
+                            <input type="hidden" value="<%=polka%>" name="rate_polka" id="rate_polka">
+                            <input type="hidden" value="<%=tron%>" name="rate_tron" id="rate_tron">
+                            <p class="font-italic value-coin-line mx-1 mb-2" id="rateBar"> 1 pop = <%=btc%> BTC</p>
+                            <div class="col-md-12 p-0">
+                                <div id="tran_wallet">
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="control-label col-sm-5" id="senderAddress">Sender's Bitcoin
+                                                Wallet Address<span style="color:red;">*</span></label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control secure" id="bit_wallet_address"
+                                                    name="bit_wallet_address" data-rule-required="true"
+                                                    data-msg-required="Please enter Wallet Address.">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="control-label col-sm-5">POP Wallet Address<span
+                                                    style="color:red;">*</span></label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control secure"
+                                                    value="<%=wallet_details.wallet_address%>" id="eth_wallet_address"
+                                                    name="eth_wallet_address" data-rule-required="true"
+                                                    data-msg-required="Please enter Ethereum Wallet Address."
+                                                    readonly="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="control-label col-sm-5">Reference/Transaction ID</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control secure" id="transaction_id"
+                                                    name="transaction_id" data-rule-required="true"
+                                                    data-msg-required="Please enter Reference/Transaction ID.">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--  <div class="form-group" >
+                          <div class="form-check form-check-flat form-check-primary">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input"> If did not remember and you have a screen shot of transaction id and wallet address then click here.</label>
+                        </div>
+                      </div> -->
+                                </div>
+
+                                <!-- <div class="form-group">
+
+                                    <div class="checkbox" >
+                                        <label for="checkbtc">
+                                            <input type="checkbox" id="checkbtc" value="" data-rule-required="true"  data-msg-required="Please accept terms and condition.">
+                                            <span class="cr"><i class="fa fa-check cr-icon"></i></span>
+                                            I agree with <a href="/terms-conditions" target="_blank">terms and conditions</a> of ARTW.
+                                        </label>
+                                    </div>
+                                </div> -->
+
+                                <input type="hidden" name="_csrf" value"" />
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="btn-block">
+                                                <button type="submit" class="btn btn-common light-green">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div>
+    <%- include('footer');%>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+        <script src="/assets/js/jquery.validate.min.js"></script>
+        <script type="text/javascript">
+
+
+            $('#buy_bitcoin').validate({
+                onfocusout: function (element) {
+                    this.element(element);
+                    $('#bt_sub_btn').show();
+                },
+                errorClass: 'error_validate_btc',
+                errorElement: 'span',
+                highlight: function (element, errorClass) {
+                    $(element).removeClass(errorClass);
+                    $('#bt_sub_btn').show();
+                }
+            });
+
+            function select(value1) {
+                let value = value1;
+                console.log('value....', value)
+                if (value == 'Ethereum') {
+                    $('#basic-addon4').text('ETH');
+                    $('#rateBar').text('1 POP = <%=eth%> ETH');
+                    $('#senderAddress').text("Sender's Ethereum Wallet Address");
+                    var rate = $('#rate_eth').val();
+                    $('#copy_add').hide();
+                    $('#copy_add3').hide();
+                    $('#copy_add4').hide();
+                    $('#copy_add5').hide();
+                    $('#copy_add6').hide();
+                    $('#copy_add7').hide();
+                    $('#copy_add2').show();
+                    $('#ethereum_img').show();
+                    $('#bitcoin_img').hide();
+                    $('#binance_img').hide();
+                    $('#doge_img').hide();
+                    $('#xlm_img').hide();
+                    $('#polka_img').hide();
+                    $('#tron_img').hide();
+                    $('#eth_list').show();
+                    $('#btc_list').hide();
+                    $('#bnb_list').hide();
+                    $('#doge_list').hide();
+                    $('#xlm_list').hide();
+                    $('#polka_list').hide();
+                    $('#tron_list').hide();
+                    $('#copyETH').show();
+                    $('#copyBTC').hide();
+                    $('#copyBNB').hide();
+                    $('#copyDoge').hide();
+                    $('#copyXLM').hide();
+                    $('#copyPolka').hide();
+                    $('#copyTron').hide();
+                    $('#rate_per_artw').val(rate);
+                    $('#currency').val(value);
+                }
+                else if (value == 'Binance') {
+                    $('#basic-addon4').text('BNB');
+                    $('#rateBar').text('1 POP = <%=bnb%> BNB');
+                    $('#senderAddress').text("Sender's Binance Wallet Address");
+                    var rate = $('#rate_bnb').val();
+                    $('#copy_add').hide();
+                    $('#copy_add2').hide();
+                    $('#copy_add4').hide();
+                    $('#copy_add5').hide();
+                    $('#copy_add6').hide();
+                    $('#copy_add7').hide();
+                    $('#copy_add3').show();
+                    $('#bitcoin_img').hide();
+                    $('#ethereum_img').hide();
+                    $('#binance_img').show();
+                    $('#doge_img').hide();
+                    $('#xlm_img').hide();
+                    $('#polka_img').hide();
+                    $('#tron_img').hide();
+                    $('#btc_list').hide();
+                    $('#eth_list').hide();
+                    $('#bnb_list').show();
+                    $('#doge_list').hide();
+                    $('#xlm_list').hide();
+                    $('#polka_list').hide();
+                    $('#tron_list').hide();
+                    $('#copyBNB').show();
+                    $('#copyETH').hide();
+                    $('#copyBTC').hide();
+                    $('#copyDoge').hide();
+                    $('#copyXLM').hide();
+                    $('#copyPolka').hide();
+                    $('#copyTron').hide();
+                    $('#rate_per_artw').val(rate);
+                    $('#currency').val(value);
+                }
+                else if (value == 'Dogecoin') {
+                    $('#basic-addon4').text('DOGE');
+                    $('#rateBar').text('1 POP = <%=doge%> DOGE');
+                    $('#senderAddress').text("Sender's Dogecoin Wallet Address");
+                    var rate = $('#rate_doge').val();
+                    $('#copy_add').hide();
+                    $('#copy_add2').hide();
+                    $('#copy_add3').hide();
+                    $('#copy_add4').show();
+                    $('#copy_add5').hide();
+                    $('#copy_add6').hide();
+                    $('#copy_add7').hide();
+                    $('#bitcoin_img').hide();
+                    $('#ethereum_img').hide();
+                    $('#binance_img').hide();
+                    $('#doge_img').show();
+                    $('#xlm_img').hide();
+                    $('#polka_img').hide();
+                    $('#tron_img').hide();
+                    $('#btc_list').hide();
+                    $('#eth_list').hide();
+                    $('#bnb_list').hide();
+                    $('#doge_list').show();
+                    $('#xlm_list').hide();
+                    $('#polka_list').hide();
+                    $('#tron_list').hide();
+                    $('#copyBNB').hide();
+                    $('#copyETH').hide();
+                    $('#copyBTC').hide();
+                    $('#copyDoge').show();
+                    $('#copyXLM').hide();
+                    $('#copyPolka').hide();
+                    $('#copyTron').hide();
+                    $('#rate_per_artw').val(rate);
+                    $('#currency').val(value);
+                }
+                else if (value == 'Stellar') {
+                    $('#basic-addon4').text('XLM');
+                    $('#rateBar').text('1 POP = <%=xlm%> XLM');
+                    $('#senderAddress').text("Sender's Stellar Wallet Address");
+                    var rate = $('#rate_xlm').val();
+                    $('#copy_add').hide();
+                    $('#copy_add2').hide();
+                    $('#copy_add3').hide();
+                    $('#copy_add4').hide();
+                    $('#copy_add5').show();
+                    $('#copy_add6').hide();
+                    $('#copy_add7').hide();
+                    $('#bitcoin_img').hide();
+                    $('#ethereum_img').hide();
+                    $('#binance_img').hide();
+                    $('#doge_img').hide();
+                    $('#xlm_img').show();
+                    $('#polka_img').hide();
+                    $('#tron_img').hide();
+                    $('#btc_list').hide();
+                    $('#eth_list').hide();
+                    $('#bnb_list').hide();
+                    $('#doge_list').hide();
+                    $('#xlm_list').show();
+                    $('#polka_list').hide();
+                    $('#tron_list').hide();
+                    $('#copyBNB').hide();
+                    $('#copyETH').hide();
+                    $('#copyBTC').hide();
+                    $('#copyDoge').hide();
+                    $('#copyXLM').show();
+                    $('#copyPolka').hide();
+                    $('#copyTron').hide();
+                    $('#rate_per_artw').val(rate);
+                    $('#currency').val(value);
+                }
+                else if (value == 'PolkaDot') {
+                    $('#basic-addon4').text('DOT');
+                    $('#rateBar').text('1 POP = <%=polka%> DOT');
+                    $('#senderAddress').text("Sender's PolkaDot Wallet Address");
+                    var rate = $('#rate_polka').val();
+                    $('#copy_add').hide();
+                    $('#copy_add2').hide();
+                    $('#copy_add3').hide();
+                    $('#copy_add4').hide();
+                    $('#copy_add5').hide();
+                    $('#copy_add6').show();
+                    $('#copy_add7').hide();
+                    $('#bitcoin_img').hide();
+                    $('#ethereum_img').hide();
+                    $('#binance_img').hide();
+                    $('#doge_img').hide();
+                    $('#xlm_img').hide();
+                    $('#polka_img').show();
+                    $('#tron_img').hide();
+                    $('#btc_list').hide();
+                    $('#eth_list').hide();
+                    $('#bnb_list').hide();
+                    $('#doge_list').hide();
+                    $('#xlm_list').hide();
+                    $('#polka_list').show();
+                    $('#tron_list').hide();
+                    $('#copyBNB').hide();
+                    $('#copyETH').hide();
+                    $('#copyBTC').hide();
+                    $('#copyDoge').hide();
+                    $('#copyXLM').hide();
+                    $('#copyPolka').show();
+                    $('#copyTron').hide();
+                    $('#rate_per_artw').val(rate);
+                    $('#currency').val(value);
+                }
+                else if (value == 'Tron') {
+                    $('#basic-addon4').text('TRX');
+                    $('#rateBar').text('1 POP = <%=tron%> TRX');
+                    $('#senderAddress').text("Sender's Tron Wallet Address");
+                    var rate = $('#rate_tron').val();
+                    $('#copy_add').hide();
+                    $('#copy_add2').hide();
+                    $('#copy_add3').hide();
+                    $('#copy_add4').hide();
+                    $('#copy_add5').hide();
+                    $('#copy_add6').hide();
+                    $('#copy_add7').show();
+                    $('#bitcoin_img').hide();
+                    $('#ethereum_img').hide();
+                    $('#binance_img').hide();
+                    $('#doge_img').hide();
+                    $('#xlm_img').hide();
+                    $('#polka_img').hide();
+                    $('#tron_img').show();
+                    $('#btc_list').hide();
+                    $('#eth_list').hide();
+                    $('#bnb_list').hide();
+                    $('#doge_list').hide();
+                    $('#xlm_list').hide();
+                    $('#polka_list').hide();
+                    $('#tron_list').show();
+                    $('#copyBNB').hide();
+                    $('#copyETH').hide();
+                    $('#copyBTC').hide();
+                    $('#copyDoge').hide();
+                    $('#copyXLM').hide();
+                    $('#copyPolka').hide();
+                    $('#copyTron').show();
+                    $('#rate_per_artw').val(rate);
+                    $('#currency').val(value);
+                }
+                else {
+                    $('#basic-addon4').text('BTC');
+                    $('#rateBar').text('1 POP = <%=btc%> BTC');
+                    $('#senderAddress').text("Sender's Bitcoin Wallet Address");
+                    var rate = $('#rate_btc').val();
+                    $('#copy_add').show();
+                    $('#copy_add2').hide();
+                    $('#copy_add3').hide();
+                    $('#copy_add4').hide();
+                    $('#copy_add5').hide();
+                    $('#copy_add6').hide();
+                    $('#copy_add7').hide();
+                    $('#bitcoin_img').show();
+                    $('#ethereum_img').hide();
+                    $('#binance_img').hide();
+                    $('#doge_img').hide();
+                    $('#xlm_img').hide();
+                    $('#polka_img').hide();
+                    $('#tron_img').hide();
+                    $('#btc_list').show();
+                    $('#eth_list').hide();
+                    $('#bnb_list').hide();
+                    $('#doge_list').hide();
+                    $('#xlm_list').hide();
+                    $('#polka_list').hide();
+                    $('#tron_list').hide();
+                    $('#copyBTC').show();
+                    $('#copyETH').hide();
+                    $('#copyBNB').hide();
+                    $('#copyDoge').hide();
+                    $('#copyXLM').hide();
+                    $('#copyPolka').hide();
+                    $('#copyTron').hide();
+                    $('#rate_per_artw').val(rate);
+                    $('#currency').val(value);
+                }
+            };
+
+            function multiply() {
+                var rowan = $('#artw').val();
+                var rate = $('#rate_per_artw').val();
+                if (rowan != "") {
+                    var btc_round = parseFloat(rowan) * rate;
+                    var btc = btc_round.toFixed(7);
+                    $('#btcv').val(btc);
+                }
+            };
+
+        </script>
+        <script>
+            function myFunction() {
+                var copyText = document.getElementById("copy_add");
+                copyText.select();
+                document.execCommand("copy");
+                alert("Address is copied");
+            }
+
+            function myFunction2() {
+                var copyText = document.getElementById("copy_add2");
+                copyText.select();
+                document.execCommand("copy");
+                alert("Address is copied");
+            }
+
+            function myFunction3() {
+                var copyText = document.getElementById("copy_add3");
+                copyText.select();
+                document.execCommand("copy");
+                alert("Address is copied");
+            }
+            function myFunction4() {
+                var copyText = document.getElementById("copy_add4");
+                copyText.select();
+                document.execCommand("copy");
+                alert("Address is copied");
+            }
+            function myFunction5() {
+                var copyText = document.getElementById("copy_add5");
+                copyText.select();
+                document.execCommand("copy");
+                alert("Address is copied");
+            }
+            function myFunction6() {
+                var copyText = document.getElementById("copy_add6");
+                copyText.select();
+                document.execCommand("copy");
+                alert("Address is copied");
+            }
+            function myFunction7() {
+                var copyText = document.getElementById("copy_add7");
+                copyText.select();
+                document.execCommand("copy");
+                alert("Address is copied");
+            }
+        </script>

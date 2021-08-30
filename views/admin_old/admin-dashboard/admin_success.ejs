@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rowan Energy</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+	<!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/css/bootstrap-dropdownhover.min.css" rel="stylesheet"/>
+	<!-- Animate CSS -->
+    <link href="assets/css/animate.css" rel="stylesheet"/>
+    <!-- hover-min CSS -->
+    <link href="assets/css/hover-min.css" rel="stylesheet"/>
+    <!-- yamm css -->
+    <link href="assets/css/yamm.css" rel="stylesheet"/>
+    <!-- Font-awesome web fonts with css -->
+    <link href="assets/css/fontawesome-all.css" rel="stylesheet" type="text/css"/>
+    <!-- Font-awesome web fonts with css -->
+    <!-- loader css -->
+    <link href="assets/css/loader.css" rel="stylesheet"/>
+	<!-- Custom CSS -->
+    <link href="assets/css/custom.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet">
+
+     <link rel="stylesheet" href="assets/css/jquery-ui.css">
+     <style>
+      .for-warning {
+    display: flex;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+    .for-warning img{
+      height: 20px;
+      margin-right: 10px;
+    }
+    .for-warning b{
+      font-size: 13px;
+    line-height: 18px;
+    }
+    .for-warning b span{
+      font-size: 13px;
+    color: #82C655;
+    }
+
+
+    </style>
+</head>
+<body>
+<style>
+       .error_validate {color: red;}
+       .title{padding: 0 50px 20px;}
+</style>
+<section class="login-sec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="signup-inner-box">
+        	<div class="logo-block">
+                  <img src="assets/images/logo.png" align="rowan energy logo">
+                </div>
+           <div class="row align-item-center">
+              <div class="col-lg-6 col-md-5 col-sm-5">
+                 <div class="side-img">
+                  <img src="assets/images/other/side-img.png" align="side img">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-7 col-sm-7">
+                 <div class="main-outer">
+                   <div class="signup-outer">
+                       <!-- <h2>Get More things done with Sign Up plateform.</h2> -->
+                       <!--  <p>Access to the most powerful tool in the entire design and web industry.</p> -->
+                         <% if(success_msg!=undefined && success_msg !=''){ %>
+                      <span class="flash_msg" style="color:green;"><%= success_msg %></span>
+                     <% }%>
+                        <h4>Admin Register Success</h4>
+                         <!--  Your registration has been completed successfully. Please check your Email and verify your account by clicking on the link. Please check your SPAM folder to in case the mail has gone to the SPAM folder. --> 
+                         <p>To scan the QR code use google authenticator app and Enter the secret code.</p>
+
+                         <h6 class="for-warning"><img src="assets/images/other/error.png" align="side img">
+                          <b>Please secure this code! If you loose your <span>Google Authenticator Code</span>, you won't be able to access this acount.</b></h6>
+                  
+
+                        <p> <%= secret_code %></p>
+                          <img src=" <%= dataURL %>" alt="" class="img-thumbnail" style="display:block;margin:auto">
+                     <form class="form-group" method="post" action="/submit_Admin_OTP">
+                          <input name="authcode" type="password"  class="form-control" maxlength="6"
+                            placeholder="Enter the Auth Code" id="authcode" autocomplete="off" required>
+                            <input type="hidden" name="secret_code" value="<%= secret_code %>">
+                            <input type="hidden" name="dataURL" value=" <%= dataURL  %>">
+                            <input type="hidden" name="password" value=" <%= password  %>">
+                              
+                          <br>
+                                <button type="Submit" class="btn btn-common"
+                                  id="submit_signup">Submit</button>
+                   </form>
+                           <div class="btn-gorup">
+                             <% if(err_msg!=undefined && err_msg !=''){ %>
+                      <span class="flash_msg" style="color:red;"><%= err_msg %></span>
+                     <% }%>
+
+                         <!--  <a href="/Resend-link" class="btn btn-common" >Resend Link</button> -->
+                         <!--  <a href="/Login" class="btn btn-border">Login</a> -->
+                        </div>
+                    </div>
+
+                 </div>
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- JQuery -->
+<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap-dropdownhover.min.js"></script>
+<script type="text/javascript" src="assets/js/wow.min.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+var flash_msg=$('.flash_msg').html();
+if(flash_msg!="" && flash_msg!=undefined)
+{
+  setTimeout(function(){ $('.flash_msg').html('');},10000);
+}    
+});
+</script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+$('#registration').validate({
+      onfocusout: function(element) {
+      this.element(element);
+      },
+      errorClass: 'error_validate',
+      errorElement:'span',
+      highlight: function(element, errorClass) {
+      $(element).removeClass(errorClass);
+      },
+      submitHandler:function(form)
+         {
+           $('#submit_signup').attr('disabled',true);
+           form.submit();
+         }
+      });
+</script>
+
+        
+
+
+</body>
+</html>
+

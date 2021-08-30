@@ -1,0 +1,60 @@
+<%- include('header') %>
+
+   <div class="heading-row mb-20">
+    <div class="row align-item-center">
+       <div class="col-lg-6">
+          <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i class="mdi mdi-account"></i></span> KYC Status </h3>
+       </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+                              
+        <div class="card-body table-responsive">
+          <table class="table">
+            <thead>
+                <tr>
+                  <th width="10%" class="border-top-0">S.No</th>
+                  <th width="15%" class="border-top-0">Document</th>
+                  <th width="15%" class="border-top-0">Full Name</th>
+                  <th width="15%" class="border-top-0">Date of Birth</th>
+                  <th width="15%" class="border-top-0">Country</th>
+                  <th width="15%" class="border-top-0">ID Document Type</th>
+                  <th width="15%" class="border-top-0">ID Document Number</th>
+                   <th width="10%" class="border-top-0">Status</th>    
+                  </tr>
+            </thead>
+             <tbody>
+                              <tr>
+                                <td width="5%">1</td>
+                                <td width="12%">
+                                  <div class="normal-img">
+                                    <img src="assets/images/other/featur-1.jpg">
+                                  </div>
+                                </td>
+                                <td width="15%">ABCD</td>
+                                <td width="12%">27,Apr 2021</td>
+                                <td width="15%">India</td>
+                                <td width="15%">Driving Licence</td>
+                                <td width="15%">1234 </td>
+                                <td width="10%"><span class="green-text">Approved</span></td>
+                               
+                              </tr>
+
+                             
+
+                              
+                            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('footer') %>
+  <script>
+$(document).ready( function () {
+  $('.table').DataTable();
+} );
+</script>

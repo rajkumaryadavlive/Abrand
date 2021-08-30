@@ -1,0 +1,71 @@
+<%- include('header') %>
+
+<section class="dash-inner-sec">
+     <div class="row">
+             <div class="col-lg-6 col-md-12">
+                 <div class="dashboard-box" style="height: 100%;">
+                   <div class="create-wallet-block">
+                           
+                            <h3 class="main-heading">Congratulations! </h3> 
+                          
+                           <p class="head-commn-text">Your wallet is created.</p>
+
+                            <h4 class="green-heading">Here is your wallet address.</h4>
+
+                          <div class="input-group input-dash copy-id-dash">
+                            <input class="form-control" type="text" placeholder="" value="<%= wallet_address %>" name="wallet_address" id="wallet_address" readonly>
+                            
+                            <a onclick="myFunction()" href="javascript:void(0);"><i class="fa fa-copy"></i></a>
+                             
+                        </div>
+
+                          <div class="clearfix note-line">
+                            <span class=""><b><i class="fa fa-info-circle"></i> Make sure you keep the wallet address safe.</b></span>
+                          </div>
+
+                          <div class="text-center">
+                              <a href="/dashboard" class="btn btn-common light-green">Continue</a>
+                          </div>
+                        </div>
+                 </div>
+             </div>
+             <div class="col-lg-6">
+               <div class="img-box-side">
+                 <img src="assets/images/wallet-img.jpg" class="img-fluid">
+               </div>
+             </div>
+        </div>
+</section>
+
+
+
+<%- include('footer') %>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+$('#create_wallet').validate({
+      onfocusout: function(element) {
+      this.element(element);
+      },
+      errorClass: 'error_validate',
+      errorElement:'span',
+      highlight: function(element, errorClass) {
+      $(element).removeClass(errorClass);
+      },
+      submitHandler:function(form)
+         {
+                 $('#submit_wallet').attr('disabled',true);
+                 form.submit();
+         }
+      });
+</script> 
+<script type="text/javascript">
+  function myFunction() {
+    var copyText = document.getElementById("wallet_address");
+    if($('#wallet_address').val() !="")
+    {
+    copyText.select();
+    document.execCommand("copy");
+    alert("wallet_address is copied.");
+    }  
+  }  
+  </script>

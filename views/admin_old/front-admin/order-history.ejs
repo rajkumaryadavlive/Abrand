@@ -1,0 +1,110 @@
+<%- include('header') -%>
+
+<style type="text/css">
+  td {
+    max-width: 150px !important;
+    overflow: hidden !important
+  }
+
+  #example_wrapper .dataTables_filter {
+    display: none !important;
+  }
+</style>
+<div class="heading-row mb-20">
+  <div class="row align-item-center">
+     <div class="col-lg-6">
+        <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i class="mdi mdi-history"></i></span> Order History </h3>
+     </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-lg-12 grid-margin stretch-card">
+
+    <div class="card">
+      <div class="card-header">
+      </div>
+
+
+      <div class="card-body table-responsive">
+        <%if(err_msg !="" ){%>
+          <span style="color: red; ">
+            <%= err_msg%>
+          </span>
+          <%}%>
+            <%if(success_msg !="" ){%>
+              <span style="color: #099441; ">
+                <%=success_msg%>
+              </span>
+              <%}%>
+                <table class="table" id="example">
+                  <thead>
+                    <tr>
+                      <th width="3%">S. No.</th>
+                      <th width="10%">Order ID</th>
+                      <!-- <th width="10%">Email</th> -->
+                      <th width="8%">User Wallet Address</th>
+                      <th width="8%">Admin Wallet Address</th>
+                      <th width="10%">Tx Hash</th>
+                      <!-- <th width="10%">Payment Method</th> -->
+                      <th width="5%">Total Ammount</th>
+                      <th width="5%">Currency Received</th>
+                      <th width="5%">$EBT sent</th>
+                      <th width="8%">Payment Status</th>
+                      <th width="8%">Order Status</th>
+                      <th width="8%">ScreenShot</th>
+                      <th width="8%">Date - Time</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody">
+                    <% var i=1; if(order_details.length> 0){
+                      order_details.forEach(function(details){
+                      %>
+
+                      <tr>
+                        <td><%- i %></td>
+                        <td><%- details._id%></td>
+                        <!-- <td>John Doe</td> -->
+                        <td><a href="https://ropsten.etherscan.io/address/<%- details.sender_wallet_address%>" target="_blank"><%- details.sender_wallet_address%></a></td>
+                        <td><a href="https://ropsten.etherscan.io/address/<%- details.eth_wallet_address%>" target="_blank"><%- details.eth_wallet_address%></a></td>
+                        <td><a href="https://ropsten.etherscan.io/tx/<%- details.transaction_Id%>" target="_blank"><%- details.transaction_Id%></a></td>
+                        <!-- <td><%- details.payment_method%></td> -->
+                        <td><%- details.total_amnt%></td>
+                        <td><%- details.payment_type%></td>
+                        <td><%- details.ebt_count%></td>
+                        <td>
+                          <%if(details.payment_status=="pending" ){%>
+                            <P>Pending</P>
+                            <%}else if(details.payment_status=="Paid" ){%>
+                              <P>Paid</P>
+                              <%}else{%>
+                              <a href="/verifyorder?id=<%=details._id%>">Paid</a>
+                              <%}%>
+                            </td>
+                        <td><%- details.payment_status%></td>
+                        <td><%- details.image%></td>
+                        <td><%- details.created_at%></td>
+
+
+                      </tr>
+
+                      <% i++; }) } %>
+
+                  </tbody>
+                </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <%- include('footer') -%>
+
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+  <script>
+$(document).ready( function () {
+  $('.table').DataTable();
+} );
+</script>
